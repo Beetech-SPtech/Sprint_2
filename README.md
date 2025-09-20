@@ -1,2 +1,2 @@
 # Sprint_2
-Repositório para as entregas individuais da sprint 2
+Repositório para as entregas da sprint 2
