@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+
+<body>
+    <div class="container">
+        <img src="images/beetech-logo.png" alt="">
+        <h3>CADASTRO</h3>
+        <div class="campos">
+            <div class="ladoEsquerdo">
+                <div class="caixaInput">
+                    <input type="text" placeholder="Nome" id="input_nome" oninput="cadastrarNome()" />
+                    <p id="erro_nome"></p>
+                </div>
+                <div class="caixaInput">
+                    <input type="text" placeholder="Email" id="input_email" oninput="cadastrarEmail()" />
+                    <p id="erro_email"></p>
+                </div>
+                <div class="caixaInput">
+                    <input type="text" placeholder="Usuário" id="input_usuario" oninput="cadastrarUsuario()" />
+                    <p id="erro_usuario"></p>
+                </div>
+                <div class="caixaInput">
+                    <input type="text" placeholder="Confirmar senha" id="input_confirmarsenha"
+                        oninput="cadastrarConfirmarSenha()" />
+                    <p id="erro_confirmarsenha"></p>
+                </div>
+            </div>
+            <div class="ladoDireito">
+                <div class="caixaInput">
+                    <input type="text" placeholder="Sobrenome" id="input_sobrenome" oninput="cadastrarSobrenome()" />
+                    <p id="erro_sobrenome"></p>
+                </div>
+
+
+                <div class="caixaInput">
+                    <input type="text" placeholder="Telefone" id="input_telefone" oninput="cadastrarTelefone()" />
+                    <p id="erro_telefone"></p>
+                </div>
+
+                <div class="caixaInput">
+                    <input type="text" placeholder="Senha" id="input_senha" oninput="cadastrarSenha()" />
+                    <p id="erro_senha1"></p>
+                    <p id="erro_senha2"></p>
+                    <p id="erro_senha3"></p>
+                </div>
+            </div>
+        </div>
+        <div class="div_button">
+            <button onclick="cadastrar()">CADASTRAR</button>
+            <p id="erro_confirmarcadastro"></p>
+            <a href=""><label for="">LOGIN</label></a>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
+
+<!-- // --------------------------------------------------- -->
+<script>
+    var senha = ``
+    var confirmacaoCadastro1 = 'a'
+    var confirmacaoCadastro2 = 'b'
+    var confirmacaoCadastro3 = 'c'
+    var confirmacaoCadastro4 = 'd'
+    var confirmacaoCadastro5 = 'e'
+    var confirmacaoCadastro6 = 'f'
+    var confirmacaoCadastro7 = 'g'
+    function cadastrarNome() {
+        var nome = input_nome.value;
+
+
+
+        // ver se o nome está com alguma caractere especial
+        if (
+            nome.includes("!") ||
+            nome.includes("@") ||
+            nome.includes("#") ||
+            nome.includes("$") ||
+            nome.includes("%") ||
+            nome.includes("&") ||
+            nome.includes("*") ||
+            nome.includes("(") ||
+            nome.includes(")")
+        ) {
+            erro_nome.innerHTML = `Você precisa inserir um nome válido.`;
+            confirmacaoCadastro1 = 'a'
+        } else {
+            erro_nome.innerHTML = ``;
+            confirmacaoCadastro1 = 'A'
+        }
+    }
+    function cadastrarSobrenome() {
+        var sobrenome = input_sobrenome.value;
+        if (
+            sobrenome.includes("!") ||
+            sobrenome.includes("@") ||
+            sobrenome.includes("#") ||
+            sobrenome.includes("$") ||
+            sobrenome.includes("%") ||
+            sobrenome.includes("&") ||
+            sobrenome.includes("*") ||
+            sobrenome.includes("(") ||
+            sobrenome.includes(")")
+        ) {
+            erro_sobrenome.innerHTML = `Você precisa inserir um sobrenome válido.`;
+            confirmacaoCadastro2 = 'b'
+        } else {
+            erro_sobrenome.innerHTML = ``;
+            confirmacaoCadastro2 = 'B'
+        }
+    }
+    function cadastrarEmail() {
+        var email = input_email.value;
+        if (
+            email.includes("@") &&
+            ((email.includes("!") ||
+                email.includes("#") ||
+                email.includes("$") ||
+                email.includes("%") ||
+                email.includes("&") ||
+                email.includes("*") ||
+                email.includes("(") ||
+                email.includes(")") == false))
+        ) {
+            erro_email.innerHTML = ``;
+            confirmacaoCadastro3 = 'C'
+        } else {
+            erro_email.innerHTML = `Você precisa inserir um email válido.`;
+            confirmacaoCadastro3 = 'c'
+        }
+    }
+
+    function cadastrarTelefone() {
+        var telefone = input_telefone.value;
+        telefone = telefone
+            .trim()
+            .replaceAll(" ", "")
+            .replaceAll("-", "")
+            .replaceAll("(", "")
+            .replaceAll(")", "");
+        if (isNaN(Number(telefone)) == true) {
+            erro_telefone.innerHTML = `Você precisa inserir um telefone válido.`;
+            confirmacaoCadastro4 = 'd'
+        } else {
+            erro_telefone.innerHTML = ``;
+            confirmacaoCadastro4 = 'D'
+        }
+    }
+    function cadastrarUsuario() {
+        var usuario = input_usuario.value;
+        if (
+            usuario.includes("!") ||
+            usuario.includes("#") ||
+            usuario.includes("$") ||
+            usuario.includes("%") ||
+            usuario.includes("&") ||
+            usuario.includes("*") ||
+            usuario.includes("(") ||
+            usuario.includes(")")
+        ) {
+            erro_usuario.innerHTML = `Você precisa inserir um usuario válido.`;
+            confirmacaoCadastro5 = 'e'
+        } else {
+            erro_usuario.innerHTML = ``;
+            confirmacaoCadastro5 = 'E'
+        }
+    }
+    function cadastrarSenha() {
+        senha = input_senha.value;
+        var tamanhoSenha = senha.length
+        var senhaMaisucula = senha.toUpperCase();
+        var senhaMinuscula = senha.toLowerCase();
+        if (
+            tamanhoSenha >= 8 &&
+            senha != senhaMaisucula &&
+            senha != senhaMinuscula
+        ) {
+            erro_senha1.innerHTML = ``;
+            erro_senha2.innerHTML = ``;
+            erro_senha3.innerHTML = ``;
+            confirmacaoCadastro6 = 'F'
+        } else {
+            confirmacaoCadastro6 = 'f'
+            if (senha.length < 8) {
+                erro_senha1.innerHTML = `A senha precisa ter no mínimo 8 caracteres.`;
+            } else {
+                erro_senha1.innerHTML = ``;
+            }
+            if (senha == senhaMaisucula) {
+                erro_senha2.innerHTML = `A senha precisa ter no mínimo 1 letra em caixa baixa.`;
+            } else {
+                erro_senha2.innerHTML = ``;
+            }
+            if (senha == senhaMinuscula) {
+                erro_senha3.innerHTML = `A senha precisa ter no mínimo 1 letra em caixa alta.`;
+            } else {
+                erro_senha3.innerHTML = ``;
+            }
+        }
+    }
+    function cadastrarConfirmarSenha() {
+        var confirmarsenha = input_confirmarsenha.value;
+        if (senha == confirmarsenha) {
+            erro_confirmarsenha.innerHTML = ``;
+            confirmacaoCadastro7 = 'G';
+        } else {
+            erro_confirmarsenha.innerHTML = `A senha não está correta`;
+            confirmacaoCadastro7 = 'g';
+        }
+
+    }
+
+    function cadastrar() {
+        if (
+            confirmacaoCadastro1 == 'A' &&
+            confirmacaoCadastro2 == 'B' &&
+            confirmacaoCadastro3 == 'C' &&
+            confirmacaoCadastro4 == 'D' &&
+            confirmacaoCadastro5 == 'E' &&
+            confirmacaoCadastro6 == 'F' &&
+            confirmacaoCadastro7 == 'G'
+        ) { erro_confirmarcadastro.innerHTML = `<b style="color:green">Cadastro realizado com sucesso!` } else { erro_confirmarcadastro.innerHTML = `<b style="color:red">Falha ao cadastrar.</b>` }
+
+    }
+</script>
