@@ -7,12 +7,12 @@ Este repositório contém o desenvolvimento da **Sprint 2** do nosso projeto.
 
 Somos o **Grupo 11** da Sprint 2. A equipe é composta por:
 
-- **Davi Vital** – [GitHub - Davi Vital](https://github.com/DaviSPTECH)  
-- **Jorge Luiz** – [GitHub - Jorge Luiz](https://github.com/Jorglcs)  
-- **Leonardo Tomas** – [GitHub - Leonardo Tomas](https://github.com/LeonardoTomas-creator)  
-- **Marcos Lopis** – [GitHub - Marcos Lopis](https://github.com/MarcosPereira00)  
-- **Thiago da Silva** – [GitHub - Thiago da Silva](https://github.com/Tiago-santos1)
-- **Wagner Reis** – [GitHub - Wagner Reis](https://github.com/WagnerRSBronstein)  
+- **Davi Vital** – [GitHub](https://github.com/DaviSPTECH)  
+- **Jorge Luiz** – [GitHub](https://github.com/Jorglcs)  
+- **Leonardo Tomas** – [GitHub](https://github.com/LeonardoTomas-creator)  
+- **Marcos Lopis** – [GitHub](https://github.com/MarcosPereira00)  
+- **Thiago da Silva** – [GitHub](https://github.com/Tiago-santos1)
+- **Wagner Reis** – [GitHub](https://github.com/WagnerRSBronstein)  
 
 
 ## Links Importantes 🔗
