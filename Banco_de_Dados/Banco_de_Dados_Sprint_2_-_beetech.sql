@@ -252,49 +252,67 @@ ELSE 'Formato inválido' END AS 'Validação do CEP' FROM enderecos;
 
 -- Usuarios relacionado à empresa
 ALTER TABLE usuarios 
-ADD COLUMN idEmpresa INT,
-ADD CONSTRAINT fkUsuarioEmpresa 
-FOREIGN KEY (idEmpresa) REFERENCES empresa(idEmpresa);
+ADD COLUMN fkUsuarioEmpresa INT,
+ADD CONSTRAINT fkUsuarioxEmpresa 
+FOREIGN KEY (fkUsuarioEmpresa) REFERENCES empresa(idEmpresa);
 
 -- Registros de sensores relacionado à sensores
 ALTER TABLE registroSensor
-ADD CONSTRAINT fkRegistroSensor
-FOREIGN KEY (sensor) REFERENCES sensores(nomeSensor);
+ADD COLUMN fkRegistroSensor INT,
+ADD CONSTRAINT fkRegistroxSensor
+FOREIGN KEY (fkRegistroSensor) REFERENCES sensores(idSensor);
 
 -- Sensores relacionado à empresa
 ALTER TABLE sensores
-ADD CONSTRAINT fkSensorEmpresa
-FOREIGN KEY (cliente) REFERENCES empresa(nomeEmpresa);
-
--- Produção total relacionado à empresa
-ALTER TABLE producaoTotal 
-ADD CONSTRAINT fkProducaoEmpresa 
-FOREIGN KEY (cnpj) REFERENCES empresa(cnpj);
-
--- Endereços relacionado à empresa
-ALTER TABLE enderecos 
-ADD CONSTRAINT fkEnderecoEmpresa 
-FOREIGN KEY (cnpj) REFERENCES empresa(cnpj);
-
--- Criar tabela para local dos sensores
-CREATE TABLE localSensor (
-    idLocal INT PRIMARY KEY AUTO_INCREMENT,
-    nomeLocal VARCHAR(45) NOT NULL,
-    descricao VARCHAR(100)
-);
-
--- Sensores relacionado à localSensor
-ALTER TABLE sensores
-ADD COLUMN idLocal INT,
-ADD CONSTRAINT fk_sensor_local FOREIGN KEY (idLocal) REFERENCES localSensor(idLocal);
-
--- Alterar nome de coluna
-ALTER TABLE registroSensor
-RENAME COLUMN qtdTemperatura TO valorTemperatura;
+ADD COLUMN fkSensorEmpresa INT,
+ADD CONSTRAINT fkSensorxEmpresa
+FOREIGN KEY (fkSensorEmpresa) REFERENCES empresa(idEmpresa);
 
 -- Alterar CNPJ da tabela empresa para UNIQUE
 ALTER TABLE empresa
 ADD CONSTRAINT cnpjUniqueEmpresa UNIQUE (cnpj);
+
+-- Alterar CNPJ da tabela enderecos para UNIQUE
+ALTER TABLE enderecos
+ADD CONSTRAINT cnpjUniqueEndereco UNIQUE (cnpj);
+
+-- Produção total relacionado à empresa
+ALTER TABLE producaoTotal
+ADD COLUMN fkProducaoEmpresa INT,
+ADD CONSTRAINT fkProducaoxEmpresa
+FOREIGN KEY (fkProducaoEmpresa) REFERENCES empresa(idEmpresa);
+
+-- Endereços relacionado à empresa
+ALTER TABLE enderecos
+ADD COLUMN fkEnderecoEmpresa INT,
+ADD CONSTRAINT fkEnderecoxEmpresa
+FOREIGN KEY (fkEnderecoEmpresa) REFERENCES empresa(idEmpresa);
+
+-- Criar tabela para local dos sensores
+CREATE TABLE localSensor (
+idLocal INT PRIMARY KEY AUTO_INCREMENT,
+nomeLocal VARCHAR(45) NOT NULL,
+descricao VARCHAR(100)
+);
+
+-- Inserir dados localSensor
+INSERT INTO localSensor (nomeLocal, descricao) VALUES
+('Apiário Principal', 'Local principal com várias colmeias de alta produção'),
+('Apiário Secundário', 'Local menor, colmeias antigas'),
+('Bosque Fundos', null);
+
+-- Seleção para conferir os dados inseridos
+SELECT * FROM localSensor;
+
+-- Sensores relacionado à localSensor
+ALTER TABLE sensores
+ADD COLUMN fkSensoresLocalSensor INT,
+ADD CONSTRAINT fkSensoresLocalxSensor 
+FOREIGN KEY (fkSensoresLocalSensor) REFERENCES localSensor(idLocal);
+
+-- Alterar nome de coluna
+ALTER TABLE registroSensor
+RENAME COLUMN qtdTemperatura TO valorTemperatura;
 
 -- Remover a coluna telFixo da tabela usuarios e contato
 ALTER TABLE usuarios
@@ -302,3 +320,42 @@ DROP COLUMN telFixo;
 
 ALTER TABLE contato
 DROP COLUMN telFixo;
+
+-- JOIN usuários + empresa (com CASE e CONCAT)
+SELECT 
+CONCAT(u.nome, ' ', u.sobrenome) AS 'Nome Completo',
+e.nomeEmpresa AS 'Nome Empresa',
+CASE
+WHEN u.nivelUsuario = 'ADM' THEN 'Administrador'
+WHEN u.nivelUsuario = 'SUB' THEN 'Subordinado'
+ELSE 'Outro'
+END AS Nível
+FROM usuarios u
+JOIN empresa e ON u.fkUsuarioEmpresa = e.idEmpresa;
+
+-- JOIN sensores + empresa + localSensor (com IFNULL)
+SELECT 
+s.nomeSensor AS 'Identificação do Sensor',
+e.nomeEmpresa AS 'Nome da Empresa',
+l.nomeLocal AS 'Local',
+IFNULL(l.descricao, 'Sem descrição') AS 'Descrição Local'
+FROM sensores s
+JOIN empresa e 
+ON s.fkSensorEmpresa = e.idEmpresa
+JOIN localSensor l 
+ON s.fkSensoresLocalSensor = l.idLocal;
+
+-- JOIN registroSensor + sensores + empresa (com CASE)
+SELECT 
+r.idRegistroSensor AS 'Registro do Sensor',
+s.nomeSensor AS 'Identificação do Sensor',
+e.nomeEmpresa AS 'Nome da Empresa',
+r.valorTemperatura AS 'Temperatura',
+CASE 
+WHEN r.valorTemperatura > 36 THEN 'Temperatura Alta Crítica'
+WHEN r.valorTemperatura BETWEEN 33 AND 36 THEN 'Temperatura Normal'
+ELSE 'Temperatura Baixa Crítica'
+END AS Situação
+FROM registroSensor r
+JOIN sensores s ON r.sensor = s.nomeSensor
+JOIN empresa e ON s.cliente = e.nomeEmpresa;
