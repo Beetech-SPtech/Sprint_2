@@ -2,7 +2,6 @@
 
 Este repositório contém o desenvolvimento da **Sprint 2** do nosso projeto.
 
---
 
 ## Sobre Nós
 
@@ -15,7 +14,6 @@ Somos o **Grupo 11** da Sprint 2. A equipe é composta por:
 - **Thiago da Silva** – [GitHub - Thiago da Silva](https://github.com/Tiago-santos1)
 - **Wagner Reis** – [GitHub - Wagner Reis](https://github.com/WagnerRSBronstein)  
 
---
 
 ## Links Importantes
 
