@@ -7,10 +7,10 @@
 */
 
 -- Criação do banco de dados
-create database projetoPI;
+create database projetoPIA;
 
 -- Seleção do banco de dados
-use projetoPI;
+use projetoPIA;
 
 -- Criação da tabela 'usuarios' com suas respectivas colunas e restrições
 create table usuarios(
@@ -252,21 +252,21 @@ ELSE 'Formato inválido' END AS 'Validação do CEP' FROM enderecos;
 
 -- Usuarios relacionado à empresa
 ALTER TABLE usuarios 
-ADD COLUMN fkUsuarioEmpresa INT,
+ADD COLUMN fkEmpresa INT,
 ADD CONSTRAINT fkUsuarioxEmpresa 
-FOREIGN KEY (fkUsuarioEmpresa) REFERENCES empresa(idEmpresa);
+FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa);
 
 -- Registros de sensores relacionado à sensores
 ALTER TABLE registroSensor
-ADD COLUMN fkRegistroSensor INT,
+ADD COLUMN fkSensores INT,
 ADD CONSTRAINT fkRegistroxSensor
-FOREIGN KEY (fkRegistroSensor) REFERENCES sensores(idSensor);
+FOREIGN KEY (fkSensores) REFERENCES sensores(idSensor);
 
 -- Sensores relacionado à empresa
 ALTER TABLE sensores
-ADD COLUMN fkSensorEmpresa INT,
-ADD CONSTRAINT fkSensorxEmpresa
-FOREIGN KEY (fkSensorEmpresa) REFERENCES empresa(idEmpresa);
+ADD COLUMN fkEmpresa INT,
+ADD CONSTRAINT fkSensoresxEmpresa
+FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa);
 
 -- Alterar CNPJ da tabela empresa para UNIQUE
 ALTER TABLE empresa
@@ -278,37 +278,33 @@ ADD CONSTRAINT cnpjUniqueEndereco UNIQUE (cnpj);
 
 -- Produção total relacionado à empresa
 ALTER TABLE producaoTotal
-ADD COLUMN fkProducaoEmpresa INT,
+ADD COLUMN fkEmpresa INT,
 ADD CONSTRAINT fkProducaoxEmpresa
-FOREIGN KEY (fkProducaoEmpresa) REFERENCES empresa(idEmpresa);
+FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa);
 
 -- Endereços relacionado à empresa
 ALTER TABLE enderecos
-ADD COLUMN fkEnderecoEmpresa INT,
+ADD COLUMN fkEmpresa INT,
 ADD CONSTRAINT fkEnderecoxEmpresa
-FOREIGN KEY (fkEnderecoEmpresa) REFERENCES empresa(idEmpresa);
+FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa);
 
--- Criar tabela para local dos sensores
+-- Criar tabela para local dos sensores / com chave estrangeira localSensor relacionado à sensores
 CREATE TABLE localSensor (
 idLocal INT PRIMARY KEY AUTO_INCREMENT,
 nomeLocal VARCHAR(45) NOT NULL,
-descricao VARCHAR(100)
+descricao VARCHAR(100),
+fkSensores INT,
+CONSTRAINT fkLocalSensorxSensores
+FOREIGN KEY (fkSensores) REFERENCES sensores(idSensor)
 );
 
 -- Inserir dados localSensor
 INSERT INTO localSensor (nomeLocal, descricao) VALUES
 ('Apiário Principal', 'Local principal com várias colmeias de alta produção'),
-('Apiário Secundário', 'Local menor, colmeias antigas'),
-('Bosque Fundos', null);
+('Apiário Secundário', 'Local menor');
 
 -- Seleção para conferir os dados inseridos
 SELECT * FROM localSensor;
-
--- Sensores relacionado à localSensor
-ALTER TABLE sensores
-ADD COLUMN fkSensoresLocalSensor INT,
-ADD CONSTRAINT fkSensoresLocalxSensor 
-FOREIGN KEY (fkSensoresLocalSensor) REFERENCES localSensor(idLocal);
 
 -- Alterar nome de coluna
 ALTER TABLE registroSensor
@@ -321,7 +317,7 @@ DROP COLUMN telFixo;
 ALTER TABLE contato
 DROP COLUMN telFixo;
 
--- JOIN usuários + empresa (com CASE e CONCAT)
+-- JOIN com CASE (usuários e empresas)
 SELECT 
 CONCAT(u.nome, ' ', u.sobrenome) AS 'Nome Completo',
 e.nomeEmpresa AS 'Nome Empresa',
@@ -333,7 +329,7 @@ END AS Nível
 FROM usuarios u
 JOIN empresa e ON u.fkUsuarioEmpresa = e.idEmpresa;
 
--- JOIN sensores + empresa + localSensor (com IFNULL)
+-- JOIN sensores + empresa + localSensor
 SELECT 
 s.nomeSensor AS 'Identificação do Sensor',
 e.nomeEmpresa AS 'Nome da Empresa',
@@ -345,7 +341,7 @@ ON s.fkSensorEmpresa = e.idEmpresa
 JOIN localSensor l 
 ON s.fkSensoresLocalSensor = l.idLocal;
 
--- JOIN registroSensor + sensores + empresa (com CASE)
+-- JOIN registroSensor + sensores + empresa (com CASE para status)
 SELECT 
 r.idRegistroSensor AS 'Registro do Sensor',
 s.nomeSensor AS 'Identificação do Sensor',
