@@ -7,10 +7,10 @@
 */
 
 -- Criação do banco de dados
-create database projetoPIA;
+create database projetoPI;
 
 -- Seleção do banco de dados
-use projetoPIA;
+use projetoPI;
 
 -- Criação da tabela 'usuarios' com suas respectivas colunas e restrições
 create table usuarios(
