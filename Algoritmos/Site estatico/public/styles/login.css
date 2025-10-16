@@ -1,0 +1,100 @@
+/* BODY  */
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: #fef7e6;
+  display: flex;
+  /* justify-content: center; */
+  width: 100%;
+  flex-direction: column;
+}
+
+
+.container-pai{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.container {
+  background-color: white;
+  width: 800px;
+  height: 600px;
+  border-radius: 15px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* IMAGENS  */
+
+#img_logo {
+  height: 140px;
+  width: 130px;
+  margin-top: 30px;
+  z-index: 2;
+}
+
+#img_fundo {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  margin-top: 50px;
+}
+
+h3 {
+  z-index: 2;
+}
+
+a {
+  color: black;
+  font-weight: bold;
+  z-index: 2;
+}
+
+label {
+  cursor: pointer;
+}
+
+/* INPUTS */
+
+.campos {
+  z-index: 2;
+}
+
+input {
+  border: solid;
+  border-color: rgb(150, 143, 143);
+  border-radius: 10px;
+  border-width: 1px;
+  height: 40px;
+  width: 500px;
+  font-size: 18px;
+  padding: 1%;
+}
+
+/* BOTÃO */
+button {
+  background-color: black;
+  color: #fee600;
+  font-size: 20px;
+  border-radius: 10px;
+  height: 40px;
+  width: 400px;
+  border-style: solid;
+  z-index: 2;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.div_button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button:hover {
+  background-color: #fee600;
+  color: black;
+}

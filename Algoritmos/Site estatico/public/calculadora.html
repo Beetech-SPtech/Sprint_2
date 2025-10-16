@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/calculadora.css">
+    <title>Simulador - BeeTech</title>
+     <link rel="icon" href="assets/images/beetech-icon.png">
+</head>
+
+<body class="center">
+    <a style="align-self : flex-start;" href="index.html">← Voltar Home</a>
+    <div id="main" class="divCard">
+        <div class="divImagem">
+            <img class="imagem" src="assets/images/beetech-logo.png" alt="Logo BeeTech"><br>
+            <h1>Simulador Financeiro</h1>
+        </div>
+
+        <div class="divPerguntas">
+            <label for="inColmeias">
+                Insira a quantidade de colmeias: <br>
+                <input type="number" id="inColmeias" class="input"><br>
+            </label>
+
+            <label for="inProducao">
+                Produção média por colmeia no mês (em kg): <br>
+                <input type="number" id="inProducao" class="input"><br>
+            </label>
+
+            <label for="inPreco">
+                Preço do kg do mel (em R$): <br>
+                <input type="number" id="inPreco" class="input"><br>
+            </label>
+        </div>
+
+        <div class="divBotao">
+            <button onclick="mostrarRelatorioMensal()" class="botaoCalcular">MENSAL</button>
+            <button onclick="mostrarRelatorioAnual()" class="botaoCalcular">ANUAL</button>
+        </div>
+
+        <div class="divMensagem" id="divMensagem">Os relatórios irão aparecer aqui:</div>
+    </div>
+
+    <script>
+        function mostrarRelatorioMensal() {
+            var colmeias = Number(inColmeias.value);
+            var kgPorColmeiaMes = Number(inProducao.value);
+            var preco = Number(inPreco.value);
+
+            var producaoComPerdaMes = colmeias * kgPorColmeiaMes;
+            var perdaProducaoMes = producaoComPerdaMes * 0.05;
+
+            var producaoSemPerdaMes = producaoComPerdaMes + perdaProducaoMes;
+            var faturamentoComPerdaMes = producaoComPerdaMes * preco;
+            var faturamentoSemPerdaMes = producaoSemPerdaMes * preco;
+
+            var diferencaFaturamentoMes = faturamentoSemPerdaMes - faturamentoComPerdaMes;
+            var percentualPerda = (perdaProducaoMes * 100) / producaoComPerdaMes;
+
+            divMensagem.innerHTML = `
+                <div class="container_linha">
+                    DADOS MENSAIS <div class="metade_linha"></div><br>
+                </div> 
+
+                <br>
+                <span>Nossos serviços podem proporcionar um aumento de até <span style="color:green">${percentualPerda.toFixed(0)}%</span> na sua receita. Isso poderia representar:</span><br><br>
+
+                <span>Produção antes (mês): <span class="backgroundDado">${producaoComPerdaMes.toFixed(2)} kg</span></span><br>
+                <span>Produção depois (mês): <span class="backgroundDado">${producaoSemPerdaMes.toFixed(2)} kg</span></span><br>
+
+                <span>Aumento no KG produzido: <span style="color:green">${perdaProducaoMes.toFixed(2)} kg </span></span><br><br>
+
+                
+                <span>Faturamento antes (mês): <span class="backgroundDado">R$ ${faturamentoComPerdaMes.toFixed(2)}</span></span><br>
+                <span>Faturamento depois (mês): <span class="backgroundDado">R$ ${faturamentoSemPerdaMes.toFixed(2)}</span></span><br>
+                <span>Aumento no faturamento: <span style="color:green">R$ ${diferencaFaturamentoMes.toFixed(2)}</span></span><br><br>
+
+                <div class="line"></div><br>
+                <span class="asterisco";>* fonte: Estudo publicado na Atena Editora</span>
+            `;
+        }
+
+        function mostrarRelatorioAnual() {
+            var colmeias = Number(inColmeias.value);
+            var kgPorColmeiaMes = Number(inProducao.value);
+            var preco = Number(inPreco.value);
+
+            var producaoComPerdaMes = colmeias * kgPorColmeiaMes;
+            var producaoComPerdaAno = producaoComPerdaMes * 12;
+
+            var perdaProducaoAno = producaoComPerdaAno * 0.05;
+            var producaoSemPerdaAno = producaoComPerdaAno + perdaProducaoAno;
+
+            var faturamentoComPerdaAno = producaoComPerdaAno * preco;
+            var faturamentoSemPerdaAno = producaoSemPerdaAno * preco;
+
+            var diferencaFaturamentoAno = faturamentoSemPerdaAno - faturamentoComPerdaAno;
+
+            divMensagem.innerHTML = `
+                <div class="container_linha">
+                    DADOS ANUAIS <div class="metade_linha"></div><br>
+                </div>
+
+                <br>
+                <span>Considerando a produção mensal inserida e o possível aumento, os resultados no ano seriam:</span><br><br>
+
+                <span>Produção antes (ano): <span class="backgroundDado">${producaoComPerdaAno.toFixed(2)} kg</span></span><br>
+                <span>Produção depois (ano): <span class="backgroundDado">${producaoSemPerdaAno.toFixed(2)} kg</span></span><br>
+                <span>Aumento no KG produzido: <span style="color:green">${perdaProducaoAno.toFixed(2)} kg</span></span><br><br>
+
+                <span>Faturamento antes (ano): <span class="backgroundDado">R$ ${faturamentoComPerdaAno.toFixed(2)}</span></span><br>
+                <span>Faturamento depois (ano): <span class="backgroundDado">R$ ${faturamentoSemPerdaAno.toFixed(2)}</span></span><br>
+                <span>Aumento no faturamento: <span style="color:green">R$ ${diferencaFaturamentoAno.toFixed(2)}</span></span><br><br>
+
+                <div class="line"></div><br>
+                <span class="asterisco";>* fonte: Estudo publicado na Atena Editora</span>
+
+                
+            `;
+        }
+    </script>
+</body>
+</html>

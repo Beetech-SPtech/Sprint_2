@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+     <link rel="icon" href="assets/images/beetech-icon.png">
+</head>
+
+<body>
+    <a style="align-self: flex-start;" href="index.html">← Voltar Home</a>
+    <div class="container-pai">
+    <div class="container">
+        <img src="assets/images/beetech-logo.png" alt="" id="img_logo">        
+        <img src="assets/images/Group-2.png" alt="" id="img_fundo">
+
+        <h3>LOGIN</h3>
+        <div class="campos">
+            <div class="dados">
+
+                <div class="caixa_input">
+                    <h3>Usuário:</h3>
+                    <input type="text" placeholder="Usuário" id="input_usuario" />
+
+                </div>
+
+
+                <div class="caixaInput">
+                    <h3>Senha:</h3>
+                    <input type="password" placeholder="Senha" id="input_senha" />
+
+                </div>
+            </div>
+        </div>
+        <div class="div_button">
+            <button onclick="logar()">Logar</button>
+            <br> <a href="tela-de-cadastro.html"><label for="">Cadastro</label></a>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
+<script>
+    function logar() {
+        var usuario = input_usuario.value;
+        var senha = input_senha.value;
+
+        if (usuario == "exemplo@beetech.com" && senha == "beetech") {
+            alert("Login realizado com sucesso!");
+        } else {
+            alert("Usuário ou senha inválidos!");
+        }
+    }
+</script>

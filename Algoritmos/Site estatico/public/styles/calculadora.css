@@ -1,0 +1,207 @@
+
+   
+    
+    
+    
+    .divCard {
+        width: 1100px;
+        height: auto;
+        background-color: white;
+        border-radius: 25px;
+        border: solid 4px rgb(243, 186, 31);
+        margin: 20px;
+        padding: 40px;
+        font-family: monospace;
+        font-weight: bold;
+        font-size: 26px;
+        display: flex;
+        flex-direction: column;
+        text-transform: uppercase;
+    }
+
+    .divImagem {
+        border-radius: 50%;
+        margin-bottom: 30px;
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .imagem {
+        width: 200px;
+        height: 200px;
+    }
+
+    .botaoCalcular {
+        width: 170px;
+        height: 50px;
+        font-size: 26px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: rgb(243, 186, 31);
+        border: none;
+        border-radius: 10px;
+
+
+    }
+
+    .botaoCalcular:hover {
+        background-color: rgb(218, 168, 31);
+    }
+
+    .input {
+        width: 530px;
+        height: 30px;
+        border-radius: 10px;
+        font-size: 28px;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+
+    }
+
+    .inputBTN {
+        width: 45px;
+        height: 45px;
+        border-radius: 2px;
+        font-size: 28px;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        text-align: center;
+        background-color: #ffff;
+
+    }
+
+    .divMensagem {
+        width: 100%;
+        height: 100%;
+        background-color: rgb(235, 198, 77);
+        border-radius: 10px;
+        padding-left: 12px;
+        padding-top: 5px;
+
+
+    }
+
+    .vermelho {
+        color: red;
+    }
+
+    .backgroundDado {
+        background-color: aliceblue;
+        border-radius: 5px;
+    }
+
+    .line {
+        width: 100%;
+        height: 2px;
+        background-color: black;
+    }
+
+    .metade_linha {
+        width: 50%;
+        height: 2px;
+        background-color: black;
+        margin-left: 5px;
+    }
+
+    .container_linha {
+        display: flex;
+        width: 100%;
+        margin: 10px;
+        justify-items: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .chart {
+        display: flex;
+        gap: 10px;
+        align-items: end;
+        margin: 20px;
+        justify-items: baseline;
+    }
+
+    .linhaTabela {
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        margin: 20px;
+        justify-items: baseline;
+        font-size: 22px;
+    }
+
+    .tabelas {
+        display: flex;
+        gap: 10px;
+        align-items: end;
+    }
+
+    .tabelasRow {
+        display: flex;
+        gap: 10px;
+    }
+
+    .blocoBlue {
+        height: 282px;
+        width: 28px;
+        background-color: blue;
+    }
+
+    .blocoRed {
+        height: 225px;
+        width: 28px;
+        background-color: red;
+    }
+
+    .blocoLinhaVerde {
+        height: 33.2px;
+        width: 562px;
+        background-color: green;
+    }
+
+    .blocoLinhaVermelho {
+        height: 33.2px;
+        width: 449.6px;
+        background-color: red;
+    }
+
+    .data {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .dataLinha {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .self-end {
+        align-self: flex-end;
+        margin-left: auto;
+    }
+
+
+    .column {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 55px;
+        justify-items: baseline;
+        align-items: end;
+    }
+
+    .colunaLinha {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 55px;
+        justify-items: baseline;
+    }
