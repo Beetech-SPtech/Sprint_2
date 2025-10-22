@@ -64,6 +64,7 @@ label {
 }
 
 input {
+  background-color: transparent;
   border: solid;
   border-color: rgb(150, 143, 143);
   border-radius: 10px;
