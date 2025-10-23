@@ -1,57 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="styles/login.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-     <link rel="icon" href="assets/images/beetech-icon.png">
-</head>
+    <link rel="stylesheet" href="styles/login.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="assets/images/beetech-icon.png" />
+  </head>
 
-<body>
-    <a style="align-self: flex-start;" href="index.html">← Voltar Home</a>
+  <body>
+    <a style="align-self: flex-start" href="index.html">← Voltar Home</a>
     <div class="container-pai">
-    <div class="container">
-        <img src="assets/images/beetech-logo.png" alt="" id="img_logo">        
-        <img src="assets/images/Group-2.png" alt="" id="img_fundo">
+      <div class="container">
+        <img src="assets/images/beetech-logo.png" alt="" id="img_logo" />
+        <img src="assets/images/Group-2.png" alt="" id="img_fundo" />
 
         <h3>LOGIN</h3>
         <div class="campos">
-            <div class="dados">
-
-                <div class="caixa_input">
-                    <h3>Usuário:</h3>
-                    <input type="text" placeholder="Ex: beetech@sptech.school" id="input_usuario" />
-
-                </div>
-
-
-                <div class="caixaInput">
-                    <h3>Senha:</h3>
-                    <input type="password" placeholder="Ex: Beetech#2025" id="input_senha" />
-
-                </div>
+          <div class="dados">
+            <div class="caixa_input">
+              <h3>Usuário:</h3>
+              <input
+                type="text"
+                placeholder="Ex: beetech@sptech.school"
+                id="input_usuario"
+              />
             </div>
+
+            <div class="caixaInput">
+              <h3>Senha:</h3>
+              <input
+                type="password"
+                placeholder="Ex: Beetech#2025"
+                id="input_senha"
+              />
+            </div>
+          </div>
         </div>
         <div class="div_button">
-            <button onclick="logar()">Logar</button>
-            <br> <a href="tela-de-cadastro.html"><label for="">Cadastro</label></a>
+          <button onclick="logar()">Logar</button>
+          <p id="p_mensagem"></p>
+          <br />
+          <a href="tela-de-cadastro.html"><label for="">Cadastro</label></a>
         </div>
+      </div>
     </div>
-    </div>
-</body>
-
+  </body>
 </html>
 <script>
-    function logar() {
-        var usuario = input_usuario.value;
-        var senha = input_senha.value;
+  // vetor de um usuario ja registrado
+  usuarioRegistrado = ["beetech@sptech.school", "Beetech#2025"];
+  // dentro do vetor [0-2]
+  //[0]-usuario/email
+  //[1] senha
 
-        if (usuario == "beetech@sptech.school" && senha == "Beetech#2025") {
-            alert("Login realizado com sucesso!");
+  contTentativas = 3;
+
+  function logar() {
+    var usuario = input_usuario.value;
+    var senha = input_senha.value;
+    if (contTentativas > 0) {
+      if (usuarioRegistrado.includes(usuario)) {
+        if (usuarioRegistrado[1] != senha) {
+          contTentativas--;
+          p_mensagem.innerHTML = `<b style="color:red">Senha inválida, tentativas restantes ${contTentativas}</b>`;
         } else {
-            alert("Usuário ou senha inválidos!");
+          p_mensagem.innerHTML = `<b style="color:green">Login realizado com sucesso!</b>`;
         }
+      } else {
+        p_mensagem.innerHTML = `<b style="color:red">Usuário inválido.</b>`;
+      }
+    } else {
+      p_mensagem.innerHTML = `<b style="color:red">Senha inválida,login bloqueado!</b>`;
     }
+  }
 </script>
