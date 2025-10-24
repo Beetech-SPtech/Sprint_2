@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/calculadora.css">
     <title>Simulador - BeeTech</title>
-     <link rel="icon" href="assets/images/beetech-icon.png">
+    <link rel="icon" href="assets/images/beetech-icon.png">
 </head>
 
-<body class="center">
+<!-- <body class="center">
     <a style="align-self : flex-start;" href="index.html">← Voltar Home</a>
     <div id="main" class="divCard">
         <div class="divImagem">
             <img class="imagem" src="assets/images/beetech-logo.png" alt="Logo BeeTech"><br>
-            <h1>Simulador Financeiro</h1>
-        </div>
+            <h1>Simulador Financeiro</h1><br>
+        </div><br>
 
         <div class="divPerguntas">
             <label for="inColmeias">
@@ -35,30 +35,66 @@
         </div>
 
         <div class="divBotao">
-            <button onclick="mostrarRelatorioMensal()" class="botaoCalcular">MENSAL</button>
-            <button onclick="mostrarRelatorioAnual()" class="botaoCalcular">ANUAL</button>
+            <p><button onclick="mostrarRelatorioMensal()" class="botaoCalcular">MENSAL</button></p><br>
+            <br><button onclick="mostrarRelatorioAnual()" class="botaoCalcular">ANUAL</button><br>
         </div>
 
         <div class="divMensagem" id="divMensagem">Os relatórios irão aparecer aqui:</div>
+    </div>-->
+<a href="index.html" style="align-self: flex-start;">←</a>
+
+<div id="main" class="divCard">
+
+    <div class="container">
+        <div class="divImagem">
+            <img class="imagem" src="assets/images/beetech-logo.png" alt="Logo BeeTech">
+            <h1>Simulador Financeiro</h1>
+        </div>
+        <div class="divPerguntas">
+            <label for="inColmeias">
+                Quantidade de colmeias:<br>
+                <input type="number" id="inColmeias" class="input" placeholder="Inserir"><br>
+            </label>
+
+            <label for="inProducao">
+                Produção média por colmeia no mês:<br>
+                <input type="number" id="inProducao" class="input" placeholder="Em KG"><br>
+            </label>
+
+            <label for="inPreco">
+                Preço do KG do mel:<br>
+                <input type="number" id="inPreco" class="input" placeholder="Em R$"><br>
+            </label>
+
+            <div class="divBotao">
+                <button onclick="mostrarRelatorioMensal()" class="botaoCalcular">Mensal</button>
+                <button onclick="mostrarRelatorioAnual()" class="botaoCalcular">Anual</button>
+            </div>
+        </div>
     </div>
 
-    <script>
-        function mostrarRelatorioMensal() {
-            var colmeias = Number(inColmeias.value);
-            var kgPorColmeiaMes = Number(inProducao.value);
-            var preco = Number(inPreco.value);
+    <div class="divMensagem" id="divMensagem">
+        <b>Resultados:</b>
+    </div>
+</div>
 
-            var producaoComPerdaMes = colmeias * kgPorColmeiaMes;
-            var perdaProducaoMes = producaoComPerdaMes * 0.05;
+<script>
+    function mostrarRelatorioMensal() {
+        var colmeias = Number(inColmeias.value);
+        var kgPorColmeiaMes = Number(inProducao.value);
+        var preco = Number(inPreco.value);
 
-            var producaoSemPerdaMes = producaoComPerdaMes + perdaProducaoMes;
-            var faturamentoComPerdaMes = producaoComPerdaMes * preco;
-            var faturamentoSemPerdaMes = producaoSemPerdaMes * preco;
+        var producaoComPerdaMes = colmeias * kgPorColmeiaMes;
+        var perdaProducaoMes = producaoComPerdaMes * 0.05;
 
-            var diferencaFaturamentoMes = faturamentoSemPerdaMes - faturamentoComPerdaMes;
-            var percentualPerda = (perdaProducaoMes * 100) / producaoComPerdaMes;
+        var producaoSemPerdaMes = producaoComPerdaMes + perdaProducaoMes;
+        var faturamentoComPerdaMes = producaoComPerdaMes * preco;
+        var faturamentoSemPerdaMes = producaoSemPerdaMes * preco;
 
-            divMensagem.innerHTML = `
+        var diferencaFaturamentoMes = faturamentoSemPerdaMes - faturamentoComPerdaMes;
+        var percentualPerda = (perdaProducaoMes * 100) / producaoComPerdaMes;
+
+        divMensagem.innerHTML = `
                 <div class="container_linha">
                     DADOS MENSAIS <div class="metade_linha"></div><br>
                 </div> 
@@ -79,25 +115,25 @@
                 <div class="line"></div><br>
                 <span class="asterisco";>* fonte: Estudo publicado na Atena Editora</span>
             `;
-        }
+    }
 
-        function mostrarRelatorioAnual() {
-            var colmeias = Number(inColmeias.value);
-            var kgPorColmeiaMes = Number(inProducao.value);
-            var preco = Number(inPreco.value);
+    function mostrarRelatorioAnual() {
+        var colmeias = Number(inColmeias.value);
+        var kgPorColmeiaMes = Number(inProducao.value);
+        var preco = Number(inPreco.value);
 
-            var producaoComPerdaMes = colmeias * kgPorColmeiaMes;
-            var producaoComPerdaAno = producaoComPerdaMes * 12;
+        var producaoComPerdaMes = colmeias * kgPorColmeiaMes;
+        var producaoComPerdaAno = producaoComPerdaMes * 12;
 
-            var perdaProducaoAno = producaoComPerdaAno * 0.05;
-            var producaoSemPerdaAno = producaoComPerdaAno + perdaProducaoAno;
+        var perdaProducaoAno = producaoComPerdaAno * 0.05;
+        var producaoSemPerdaAno = producaoComPerdaAno + perdaProducaoAno;
 
-            var faturamentoComPerdaAno = producaoComPerdaAno * preco;
-            var faturamentoSemPerdaAno = producaoSemPerdaAno * preco;
+        var faturamentoComPerdaAno = producaoComPerdaAno * preco;
+        var faturamentoSemPerdaAno = producaoSemPerdaAno * preco;
 
-            var diferencaFaturamentoAno = faturamentoSemPerdaAno - faturamentoComPerdaAno;
+        var diferencaFaturamentoAno = faturamentoSemPerdaAno - faturamentoComPerdaAno;
 
-            divMensagem.innerHTML = `
+        divMensagem.innerHTML = `
                 <div class="container_linha">
                     DADOS ANUAIS <div class="metade_linha"></div><br>
                 </div>
@@ -118,7 +154,8 @@
 
                 
             `;
-        }
-    </script>
+    }
+</script>
 </body>
+
 </html>
