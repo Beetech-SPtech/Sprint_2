@@ -44,7 +44,6 @@
         <div class="div_button">
           <button onclick="logar()">Logar</button>
           <p id="p_mensagem"></p>
-          <br />
           <a href="tela-de-cadastro.html"><label for="">Cadastro</label></a>
         </div>
       </div>
@@ -67,7 +66,7 @@
       if (usuarioRegistrado.includes(usuario)) {
         if (usuarioRegistrado[1] != senha) {
           contTentativas--;
-          p_mensagem.innerHTML = `<b style="color:red">Senha inválida, tentativas restantes ${contTentativas}</b>`;
+          p_mensagem.innerHTML = `<b style="color:red">Senha inválida, tentativas restantes: ${contTentativas}</b>`;
         } else {
           p_mensagem.innerHTML = `<b style="color:green">Login realizado com sucesso!</b>`;
         }
@@ -75,7 +74,7 @@
         p_mensagem.innerHTML = `<b style="color:red">Usuário inválido.</b>`;
       }
     } else {
-      p_mensagem.innerHTML = `<b style="color:red">Senha inválida,login bloqueado!</b>`;
+      p_mensagem.innerHTML = `<b style="color:red">Senha inválida, login bloqueado!</b>`;
     }
   }
 </script>
