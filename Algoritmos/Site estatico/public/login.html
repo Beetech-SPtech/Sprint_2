@@ -62,11 +62,11 @@
   function logar() {
     var usuario = input_usuario.value;
     var senha = input_senha.value;
-    if (contTentativas > 0) {
+    if (contTentativas > 1) {
       if (usuarioRegistrado.includes(usuario)) {
         if (usuarioRegistrado[1] != senha) {
           contTentativas--;
-          p_mensagem.innerHTML = `<b style="color:red">Senha inválida, tentativas restantes: ${contTentativas}</b>`;
+          p_mensagem.innerHTML = `<b style="color:red">Senha inválida, tentativa(s) restante(s): ${contTentativas}</b>`;
         } else {
           p_mensagem.innerHTML = `<b style="color:green">Login realizado com sucesso!</b>`;
         }
