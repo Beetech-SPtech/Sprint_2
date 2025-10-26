@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="leftBar">
+        <img src="assets/images/beetech-logo.png" alt="" />
+        <p>Sua dashboard</p>
+        <button>Sair</button>
+      </div>
+      <div class="main">
+        <div class="titulo"><h1>Medidas de temperatura de sua Colmeia</h1></div>
+        <div class="boxes">
+          <div class="box1">
+            <p>Temperatura Atual</p>
+            <p class="temperatura">34.8°C</p>
+            <p><b>Ideal</b></p>
+          </div>
+          <div class="box2">
+            <p>Média dos ultimos 15 minutos</p>
+            <p>35°C</p>
+            <p><b>Ideal</b></p>
+          </div>
+
+          <div class="box3">
+            <p>Colmeia com menor temperatura:3</p>
+            <p>32.1°C</p>
+            <p><b>Abaixo do Ideal</b></p>
+          </div>
+          <div class="box4">
+            <p>Colmeia com maior temperatura:4</p>
+            <p>37°C</p>
+            <p><b>Acima do Ideal</b></p>
+          </div>
+        </div>
+        <div class="main-bottom">
+          <div class="left">
+            <div class="selecionar-sensor">
+              <p>Sensores instalados: 3</p>
+              <p>Selecione o sensor:</p>
+              <select name="" id="">
+                <option value="">Todos</option>
+                <option value="">Sensor 1</option>
+                <option value="">Sensor 2</option>
+                <option value="">Sensor 3</option>
+              </select>
+            </div>
+            <div class="box5">
+              <p>Total de Alertas Emitidos no primeiro semestre:</p>
+              <p>27</p>
+            </div>
+          </div>
+          <div class="right">
+            <div><canvas id="myChartLine"></canvas></div>
+            <div><canvas id="myChart"></canvas></div>
+          </div>
+        </div>
+      </div>
+      <div class="metricas">
+        <h1>Métricas:</h1>
+        <div class="metrica1">
+          <p><b>Preocupante</b></p>
+          <p>Acima de 39°C ou Acima da temperatura por mais de 15 minutos</p>
+        </div>
+        <div class="metrica2">
+          <p><b>Acima do Ideal</b></p>
+          <p>Acima de 36°C</p>
+        </div>
+        <div class="metrica3">
+          <p><b>Ideal</b></p>
+          <p>Entre 33°C - 36°C</p>
+        </div>
+        <div class="metrica4">
+          <p><b>Abaixo do Ideal</b></p>
+          <p>Abaixo de 33°C</p>
+        </div>
+        <div class="metrica5">
+          <p><b>Preocupante</b></p>
+          <p>Abaixo de 30°C ou Abaixo da temperatura por mais de 15 minutos</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  const ctx = document.getElementById("myChart");
+  const ctxLine = document.getElementById("myChartLine");
+
+  new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"],
+      datasets: [
+        {
+          label: "Histórico de alertas",
+          data: [10, 4, 2, 3, 2, 6],
+          borderWidth: 3,
+          borderColor: "red",
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+
+  new Chart(ctxLine, {
+    type: "line",
+    data: {
+      labels: [
+        "11:00",
+        "11:15",
+        "11:30",
+        "11:45",
+        "12:00",
+        "12:15",
+        "12:30",
+        "12:45",
+        "13:00",
+        "13:15",
+        "13:30",
+      ],
+      datasets: [
+        {
+          label: "Temp Colméia 1",
+          data: [33, 35.9, 33, 33.8, 34.4, 34.9, 36.1, 35.2, 33.4, 33.9, 34.4],
+          borderWidth: 1,
+        },
+        {
+          label: "Temp Colméia 2",
+          data: [35, 34.9, 33, 34.8, 33.4, 35.9, 36.1, 33.2, 34.4, 33.3, 35.4],
+          borderWidth: 1,
+        },
+        {
+          label: "Temp Colméia 3",
+          data: [
+            35.7, 34.4, 33.6, 34.5, 33.5, 35.2, 36.6, 35.2, 34.9, 33.9, 35.4,
+          ],
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: false,
+          min: 31,
+        },
+      },
+    },
+  });
+</script>
