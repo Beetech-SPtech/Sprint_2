@@ -16,28 +16,63 @@ body{
 body a{
     font-weight: bold;
 }
+
+header{
+    width: 100%;
+}
+header .container{
+    display: flex;
+    background-color: #DFCD9E;
+    justify-content: space-between;
+    padding: 0 0px;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+}
+
+header .container .navbar{
+    display: flex;
+
+}
+
+header .container .navbar li{
+    list-style: none;
+    margin: 0 25px;
+    font-size: 22px;
+    font-weight: Semibold;
+}
+header .container .navbar li a{
+    text-decoration: none;
+    color: black;
+    
+}
+header .container .navbar li a:hover{
+    text-decoration:underline;
+}
+
+
 .container-pai{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.container{
+.main .container{
     background-image: url(../assets/images/Group-2.png);
     background-size: 589px;
     background-repeat: no-repeat;
     background-position: 50%;
     
 }
-img{
+.main img{
     height: 139px;
     width: 130px;
 }
 
 
-.container{
+.main .container{
    
     z-index: 2;
-    position: absolute;
+    
     display: flex;
     flex-direction: column;
     width: 800px;
@@ -50,7 +85,7 @@ img{
 
     
 }
-.campos{
+.main .campos{
     display: flex;
     
     flex-direction: row;
@@ -60,11 +95,11 @@ img{
         font-size: 11px;
     }
 }
-.campos .cabecalho{
+.main .campos .cabecalho{
     font-size: 15px;
     color: black;
 }
-input{
+.main input{
     border: 1px solid #aaaaaa;
     background-color: transparent;
     border-radius: 10px;
@@ -78,7 +113,7 @@ input{
 
 
 
-button{
+.main button{
     background-color: black;
     color: #FEE600;
     font-size: 20px;
@@ -89,7 +124,7 @@ button{
     cursor: pointer;
 }
 
-.div_button{
+.main .div_button{
     margin: 20px;
     display: flex;
     align-items: center ;
@@ -97,17 +132,17 @@ button{
     flex-direction: column;
     
 }
-.caixaInput{
+.main .caixaInput{
     margin: 8px;
     gap: 10px;
 
 }
 
-.container h3{
+.main .container h3{
     font-weight: 500;
     color: black;
 }
-a{
+.main a{
     text-decoration: underline;
     cursor: pointer;
 }

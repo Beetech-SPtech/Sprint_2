@@ -32,23 +32,32 @@ header .container .navbar li a{
     color: black;
 }
 
+
+html{
+    scroll-behavior: smooth; 
+    /* APENAS PARA DEIXAR O MOVIMENTO BONITINHO */
+}
+
 /* FIM HEADER */
 
 /* COMEÇO BANNER */
 .container-banner{
     display: flex;
     height: 655px;
-    
+    width: 100%;
+    background-image: url('../assets/images/banner.jpeg');
+    background-size: cover;
 }
 
 /* COMEÇO LADO ESQUERDO DO BANNER */
 .container-banner .banner-texto{
-    width: 50%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 100px;
-    background-image: linear-gradient(0deg, #F9F0D9, transparent);
+    color: black;
+    
 }
 
 .container-banner .banner-texto button{
@@ -79,12 +88,14 @@ header .container .navbar li a{
     margin: 0 0 20px;
 }
 .container-banner .banner-texto .titulo h1{
-    font-size: 55px;
+    font-size: 60px;
     margin: 0 0 20px;
+    font-weight: bolder;
 }
 .container-banner .banner-texto .titulo p{
-    font-size: 26px;
+    font-size: 30px;
     margin: 0 0 20px;
+    font-weight: bold;
 }
 /* FIM LADO ESQUERDO DO BANNER */
 
@@ -97,7 +108,7 @@ header .container .navbar li a{
 /* FIM BANNER */
 /* COMECO BANNER QUEM SOMOS */
 body .container-quemsomos{
-    height: 800px;
+    height: 1000px;
     background-color: #F9F0D9;
     display: flex;
     flex-direction: column;
@@ -179,6 +190,7 @@ body .quemsomos img{
 .comofunciona .comofunciona-banner .boxes .box p{
     text-align: center;
     width: 150px;
+    font-size: 15px;
 }
 
 .fim{
@@ -216,6 +228,8 @@ body .quemsomos img{
     display: flex;
     flex-direction: row;
     margin-top: 40px;
+    width: 100%;
+    justify-content: space-around;
 }
 
 .escolher .banner-escolher .boxes .box{
@@ -223,6 +237,7 @@ body .quemsomos img{
     flex-direction: column;
     align-items: center;
     margin: 30px;
+    width: 30%;
 
 }
 .escolher .banner-escolher .boxes .box img{
