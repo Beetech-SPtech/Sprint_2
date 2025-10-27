@@ -43,7 +43,7 @@
         </div>
         <div class="div_button">
           <button onclick="logar()">Logar</button>
-          <p id="p_mensagem"></p>
+          <p id="div_mensagem"></p>
           <a href="tela-de-cadastro.html"><label for="">Cadastro</label></a>
         </div>
       </div>
@@ -51,30 +51,34 @@
   </body>
 </html>
 <script>
-  // vetor de um usuario ja registrado
-  usuarioRegistrado = ["beetech@sptech.school", "Beetech#2025"];
-  // dentro do vetor [0-2]
+  // vetor de um usuario já registrado
+  var usuarioRegistrado = ["beetech@sptech.school", "Beetech#2025"];
   //[0]-usuario/email
   //[1] senha
-
-  contTentativas = 3;
+  var contTentativas = 3;
+  var logado = false;
 
   function logar() {
     var usuario = input_usuario.value;
     var senha = input_senha.value;
-    if (contTentativas > 1) {
+
+    while (contTentativas > 0 && logado == false) {
       if (usuarioRegistrado.includes(usuario)) {
-        if (usuarioRegistrado[1] != senha) {
-          contTentativas--;
-          p_mensagem.innerHTML = `<b style="color:red">Senha inválida, tentativa(s) restante(s): ${contTentativas}</b>`;
+        if (usuarioRegistrado[1] == senha) {
+          div_mensagem.innerHTML = "<b style='color:green'>Login realizado com sucesso!</b>";
+          logado = true;
         } else {
-          p_mensagem.innerHTML = `<b style="color:green">Login realizado com sucesso!</b>`;
+          contTentativas--;
+          if (contTentativas > 0) {
+            div_mensagem.innerHTML = `<b style="color:red">Senha inválida, tentativa(s) restante(s): ${contTentativas}</b>`;
+          } else {
+            div_mensagem.innerHTML = "<b style='color:red'>Login bloqueado!</b>";
+          }
         }
       } else {
-        p_mensagem.innerHTML = `<b style="color:red">Usuário inválido.</b>`;
+        div_mensagem.innerHTML = "<b style='color:red'>Usuário inválido.</b>";
+        contTentativas = 0;
       }
-    } else {
-      p_mensagem.innerHTML = `<b style="color:red">Senha inválida, login bloqueado!</b>`;
     }
   }
 </script>
