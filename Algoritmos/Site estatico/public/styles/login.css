@@ -69,6 +69,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 30px;
 }
 
 /* IMAGENS  */
@@ -142,4 +143,6 @@ button {
 button:hover {
   background-color: #fee600;
   color: black;
+  transition: 0.5s;
 }
+
