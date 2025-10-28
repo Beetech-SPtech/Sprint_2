@@ -15,7 +15,7 @@
     <div class="container">
       <a href="index.html"><img src="assets/images/beetech.png" alt="logo_beetech" /></a>
       <ul class="navbar">
-        <li><a href="index.html">Voltar a página incial</a></li>
+        <li><a href="index.html">Voltar para a página inicial</a></li>
 
       </ul>
     </div>
@@ -31,22 +31,22 @@
             <div class="campos">
                 <div class="ladoEsquerdo">
                     <div class="caixaInput">
-                        <p class="cabecalho">Nome</p>
+                        <p class="cabecalho">Nome:</p>
                         <input type="text" placeholder="Bee" id="input_nome" oninput="cadastrarNome()" />
                         <p id="erro_nome"></p>
                     </div>
                     <div class="caixaInput">
-                        <p class="cabecalho">Email</p>
+                        <p class="cabecalho">E-mail:</p>
                         <input type="text" placeholder="beetech@sptech.school" id="input_email" oninput="cadastrarEmail()" />
                         <p id="erro_email"></p>
                     </div>
                     <div class="caixaInput">
-                        <p class="cabecalho">Nascimento</p>
+                        <p class="cabecalho">Data de nascimento:</p>
                         <input type="text" placeholder="21/01/2007" id="input_nascimento" oninput="cadastrarNascimento()" />
                         <p id="erro_nascimento"></p>
                     </div>
                     <div class="caixaInput">
-                        <p class="cabecalho">Confirmar Senha</p>
+                        <p class="cabecalho">Confirmar senha:</p>
                         <input type="password" placeholder="Beetech#2025" id="input_confirmarsenha"
                             oninput="cadastrarConfirmarSenha()" />
                         <p id="erro_confirmarsenha"></p>
@@ -54,20 +54,20 @@
                 </div>
                 <div class="ladoDireito">
                     <div class="caixaInput">
-                        <p class="cabecalho">Sobrenome</p>
+                        <p class="cabecalho">Sobrenome:</p>
                         <input type="text" placeholder="Tech" id="input_sobrenome" oninput="cadastrarSobrenome()" />
                         <p id="erro_sobrenome"></p>
                     </div>
     
     
                     <div class="caixaInput">
-                        <p class="cabecalho">Telefone</p>
+                        <p class="cabecalho">Telefone:</p>
                         <input type="text" placeholder="1191234123" id="input_telefone" oninput="cadastrarTelefone()" />
                         <p id="erro_telefone"></p>
                     </div>
     
                     <div class="caixaInput">
-                        <p class="cabecalho">Senha</p>
+                        <p class="cabecalho">Senha:</p>
                         <input type="password" placeholder="Beetech#2025" id="input_senha" oninput="cadastrarSenha()" />
                         <p id="erro_senha1"></p>
                         <p id="erro_senha2"></p>
@@ -78,10 +78,10 @@
         </div>
         <div class="div_button">
             <br>
-            <button id="button_cadastrar" onclick="cadastrar()">CADASTRAR</button>
+            <button id="button_cadastrar" onclick="cadastrar()">Cadastrar</button>
             <p id="erro_confirmarcadastro"></p>
             <br>
-            <a href="login.html">LOGIN </a>
+            <a href="login.html">Login </a>
         </div>
     </div>
     </div>
@@ -182,18 +182,23 @@
             confirmacaoCadastro4 = 'D'
         }
     }
-    function cadastrarNascimento() {
-        var nascimento = input_nascimento.value;
-        if (
-            nascimento ='' || nascimento<8 || nascimento>8
-        ) {
-            erro_nascimento.innerHTML = `Você precisa inserir uma data válida  .`;
-            confirmacaoCadastro5 = 'e'
+function cadastrarNascimento() {
+    var nascimento = input_nascimento.value.replaceAll("/", "");
+
+    var valido = false;
+
+    while (valido == false) {
+        if (nascimento == '' || nascimento.length < 8 || nascimento.length > 8) {
+            erro_nascimento.innerHTML = `Você precisa inserir uma data válida.`;
+            confirmacaoCadastro5 = 'e';
+            valido = true; 
         } else {
             erro_nascimento.innerHTML = ``;
-            confirmacaoCadastro5 = 'E'
+            confirmacaoCadastro5 = 'E';
+            valido = true; 
         }
     }
+}
     function cadastrarSenha() {
         senha = input_senha.value;
         var tamanhoSenha = senha.length
@@ -253,3 +258,4 @@
     }
 
 </script>
+
