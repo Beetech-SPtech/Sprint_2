@@ -36,7 +36,7 @@ CREATE TABLE usuarios (
     dtNasc DATE,
     telCelular char(14),
     senha VARCHAR(60),
-    dtCadastro DATETIME,
+    dtCadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
     nivelUser CHAR(3),
     fkEmpresa INT,
 		CONSTRAINT fkDaEmpresa
@@ -148,7 +148,7 @@ select * from sensores;
 CREATE TABLE registroSensor(
 	idREgistroSensor INT PRIMARY KEY AUTO_INCREMENT,
 	valorTemp DECIMAL (4,2),
-    dtTemp DATETIME,
+    dtTemp DATETIME DEFAULT CURRENT_TIMESTAMP,
     fkSensores INT,
 		CONSTRAINT fkDoSensor
 			FOREIGN KEY (fkSensores)
@@ -161,6 +161,18 @@ INSERT INTO registroSensor (valorTemp, dtTemp, fkSensores) VALUES
 (10.25, default, 3);
 
 select * from registroSensor;
+
+CREATE TABLE contato (
+	idContato INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(45),
+    sobrenome VARCHAR(45),
+    email VARCHAR(45),
+    telCelular CHAR(14),
+    empresa VARCHAR(100),
+    cnpj CHAR(18),
+    cargo VARCHAR(40),
+    comentario VARCHAR(500)
+);
 
 select responsavel as Responsavel,
 	   nomeEmpresa as NomeFantasia,
