@@ -18,13 +18,12 @@ header .container{
 
 header .container .navbar{
     display: flex;
-
 }
 
 header .container .navbar li{
     list-style: none;
     margin: 0 25px;
-    font-size: 22px;
+    font-size: 19px;
     font-weight: Semibold;
 }
 header .container .navbar li a{
@@ -125,7 +124,7 @@ body .container-quemsomos{
 .container-quemsomos .quemsomos-info .quemsomos-texto{
     padding: 200px;
     width: 50%;
-    font-size: 26px;
+    font-size: 22px;
 }
 .container-quemsomos .quemsomos-info .quemsomos-img{
     width: 50%;
@@ -194,7 +193,7 @@ body .quemsomos img{
 .comofunciona .comofunciona-banner .boxes .box p{
     text-align: center;
     margin-bottom: 30px;
-    font-size: 15px;
+    font-size: 17px;
 }
 .comofunciona .comofunciona-banner .boxes .box .numero{
     font-size: 18px;
@@ -230,6 +229,7 @@ body .quemsomos img{
 }
 .escolher .banner-escolher h1{
     margin: 70px 0 ;
+    font-size: 30px;
 }
 
 .escolher .banner-escolher .boxes{
@@ -238,6 +238,7 @@ body .quemsomos img{
     margin-top: 40px;
     width: 100%;
     justify-content: space-around;
+    font-size: 18px;
 }
 
 .escolher .banner-escolher .boxes .box{
@@ -339,6 +340,7 @@ body .quemsomos img{
     flex-direction: column;
     align-items: center;
     margin: 0 100px 50px ;
+    font-size: 20px;
 }
 
 .banner-equipe .boxes1{

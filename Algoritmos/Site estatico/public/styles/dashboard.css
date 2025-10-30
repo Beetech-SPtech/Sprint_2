@@ -65,7 +65,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  font-size: 20px;
+  font-size: 18px;
 
   text-align: center;
 }
@@ -77,7 +77,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  font-size: 20px;
+  font-size: 18px;
 
   text-align: center;
 }
@@ -89,7 +89,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  font-size: 20px;
+  font-size: 18px;
 
   text-align: center;
 }
@@ -101,7 +101,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  font-size: 20px;
+  font-size: 18px;
 
   text-align: center;
 }
@@ -140,6 +140,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
   font-size: 20px;
+  color: white;
 
   text-align: center;
 }
@@ -151,7 +152,7 @@ body {
   align-items: center;
   height: 100%;
 
-  margin-left: 100px;
+  margin-left: 40px;
 }
 .metricas h1 {
   margin: 10px 0 40px;
@@ -164,7 +165,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  font-size: 20px;
+  font-size: 18px;
 
   text-align: center;
 
@@ -177,7 +178,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  font-size: 20px;
+  font-size: 18px;
 
   text-align: center;
 
@@ -190,7 +191,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  font-size: 20px;
+  font-size: 18px;
 
   text-align: center;
   
@@ -203,7 +204,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  font-size: 20px;
+  font-size: 18px;
 
   text-align: center;
   
@@ -216,7 +217,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  font-size: 20px;
+  font-size: 18px;
 
   text-align: center;
   
