@@ -167,22 +167,6 @@
     }
 
     function cadastrarTelefone() {
-        var telefone = input_telefone.value;
-        telefone = telefone
-            .trim()
-            .replaceAll(" ", "")
-            .replaceAll("-", "")
-            .replaceAll("(", "")
-            .replaceAll(")", "");
-        if (isNaN(Number(telefone)) == true) {
-            erro_telefone.innerHTML = `Você precisa inserir um telefone válido.`;
-            confirmacaoCadastro4 = 'd'
-        } else {
-            erro_telefone.innerHTML = ``;
-            confirmacaoCadastro4 = 'D'
-        }
-    }
-    function cadastrarTelefone() {
         var telefone = input_telefone.value
             .replaceAll(" ", "")
             .replaceAll("-", "")
@@ -219,6 +203,18 @@
             confirmacaoCadastro4 = 'd';
         }
     }
+
+    function cadastrarNascimento() {
+    var nascimento = input_nascimento.value.trim().replaceAll("/", "");
+
+    if (nascimento.length !== 8 || isNaN(Number(nascimento))) {
+        erro_nascimento.innerHTML = `Você precisa inserir uma data válida.`;
+        confirmacaoCadastro5 = 'e';
+    } else {
+        erro_nascimento.innerHTML = ``;
+        confirmacaoCadastro5 = 'E';
+    }
+}
     
     function cadastrarSenha() {
         senha = input_senha.value;
