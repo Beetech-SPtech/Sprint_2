@@ -182,17 +182,44 @@
             confirmacaoCadastro4 = 'D'
         }
     }
-    function cadastrarNascimento() {
-        var nascimento = input_nascimento.value.trim().replaceAll("/", "");
+    function cadastrarTelefone() {
+        var telefone = input_telefone.value
+            .replaceAll(" ", "")
+            .replaceAll("-", "")
+            .replaceAll("(", "")
+            .replaceAll(")", "");
+        // trim(): remove espaços no início e fim.
+        // replaceAll(...): remove espaços, traços, parênteses (deixando só os números)
+        // Exemplo: Se o usuário digitar (11) 9876-5432, o resultado final será "1198765432".
 
-        if (nascimento.length !== 8 || isNaN(Number(nascimento))) {
-            erro_nascimento.innerHTML = `Você precisa inserir uma data válida. `;
-            confirmacaoCadastro5 = 'e'
+        var valido = true; // Variável de controle, serve para indicar se o telefone é válido ou não. Inicialmente, supõe-se que é válido.
+
+        // VERIFICAR SE TODOS OS CARACTERES SÃO NÚMEROS:
+        var cont = 0; // Começa o contador no primeiro caractere da string (índice 0).
+
+        while (cont < telefone.length) { // Esse while percorre cada caractere do telefone / O laço vai rodar enquanto cont for menor que o comprimento da string
+            if (isNaN(Number(telefone[cont]))) { //isNaN(...) verifica se não é número / Number(telefone[cont]) transforma o caractere em número.
+                // telefone[cont] acessa cada caractere individual da string, um por um:
+                // 1ª vez: telefone[0] → '1'
+                // 2ª vez: telefone[1] → '1'
+                // 3ª vez: telefone[2] → '9'
+                // etc.
+                valido = false; // Se achar algo que não é número, marca valido = false. 
+                // // Exemplo: telefone = "11987A5432" → quando chegar no “A”, isNaN(Number("A")) será true → então valido = false.
+            }
+            cont++; // no final de cada volta, soma 1 em cont para ir ao próximo caractere.
+        }
+
+        // Só considera o telefone válido se: todos os caracteres são números (valido == true), e tem pelo menos 8 dígitos (telefone.length >= 8).
+        if (valido && telefone.length >= 8) {
+            erro_telefone.innerHTML = ``;
+            confirmacaoCadastro4 = 'D';
         } else {
-            erro_nascimento.innerHTML = ``;
-            confirmacaoCadastro5 = 'E'
+            erro_telefone.innerHTML = `Você precisa inserir um telefone válido.`;
+            confirmacaoCadastro4 = 'd';
         }
     }
+    
     function cadastrarSenha() {
         senha = input_senha.value;
         var tamanhoSenha = senha.length
