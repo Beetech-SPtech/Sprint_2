@@ -77,7 +77,7 @@ header .container .navbar li a:hover{
     display: flex;
     flex-direction: column;
     width: 800px;
-    height: 800px;
+    height: 850px;
     background-color: white;
     align-items: center;
     border-radius: 15px;
