@@ -182,23 +182,17 @@
             confirmacaoCadastro4 = 'D'
         }
     }
-function cadastrarNascimento() {
-    var nascimento = input_nascimento.value.replaceAll("/", "");
+    function cadastrarNascimento() {
+        var nascimento = input_nascimento.value.trim().replaceAll("/", "");
 
-    var valido = false;
-
-    while (valido == false) {
-        if (nascimento == '' || nascimento.length < 8 || nascimento.length > 8) {
-            erro_nascimento.innerHTML = `Você precisa inserir uma data válida.`;
-            confirmacaoCadastro5 = 'e';
-            valido = true; 
+        if (nascimento.length !== 8 || isNaN(Number(nascimento))) {
+            erro_nascimento.innerHTML = `Você precisa inserir uma data válida. `;
+            confirmacaoCadastro5 = 'e'
         } else {
             erro_nascimento.innerHTML = ``;
-            confirmacaoCadastro5 = 'E';
-            valido = true; 
+            confirmacaoCadastro5 = 'E'
         }
     }
-}
     function cadastrarSenha() {
         senha = input_senha.value;
         var tamanhoSenha = senha.length
