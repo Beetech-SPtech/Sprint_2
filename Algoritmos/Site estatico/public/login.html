@@ -62,34 +62,36 @@
 </html>
 <script>
   // vetor de um usuario já registrado
-  var usuarioRegistrado = ["beetech@sptech.school", "Beetech#2025"];
-  //[0]-usuario/email
+  usuarioRegistrado = ["beetech@sptech.school", "Beetech#2025"];
+  // dentro do vetor [0-1]
+  //[0] usuario/email
   //[1] senha
-  var contTentativas = 3;
-  var logado = false;
 
-  function logar() {
+  contTentativas = 3;
+
+ function logar() {
     var usuario = input_usuario.value;
     var senha = input_senha.value;
 
-    while (contTentativas > 0 && logado == false) {
+    if (contTentativas > 0) {
+
       if (usuarioRegistrado.includes(usuario)) {
         if (usuarioRegistrado[1] == senha) {
-          div_mensagem.innerHTML = "<b style='color:green'>Login realizado com sucesso!</b>";
-          logado = true;
-          window.location.href = "dashboard.html"
+          div_mensagem.innerHTML = `<b style="color:green">Login realizado com sucesso!</b>`;
+          window.location.href = "dashboard.html";
         } else {
           contTentativas--;
           if (contTentativas > 0) {
             div_mensagem.innerHTML = `<b style="color:red">Senha inválida, tentativa(s) restante(s): ${contTentativas}</b>`;
           } else {
-            div_mensagem.innerHTML = "<b style='color:red'>Login bloqueado!</b>";
+            div_mensagem.innerHTML = `<b style="color:red">Senha inválida, login bloqueado!</b>`;
           }
         }
       } else {
-        div_mensagem.innerHTML = "<b style='color:red'>Usuário inválido.</b>";
-        contTentativas = 0;
+        div_mensagem.innerHTML = `<b style="color:red">Usuário inválido.</b>`;
       }
+    } else {
+      div_mensagem.innerHTML = `<b style="color:red">Login bloqueado!</b>`;
     }
   }
 </script>
