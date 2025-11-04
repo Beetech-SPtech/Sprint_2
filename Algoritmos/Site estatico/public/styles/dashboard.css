@@ -119,16 +119,19 @@ body {
   width: 90%;
   height: 100%;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 .container-main .container-colmeias {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   background-color: #d9d9d9;
-  width: 50%;
+  width: 40%;
   height: 80%;
   border-radius: 5px;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0px ;
 }
 .container-main .container-colmeias a {
   text-decoration: none;
@@ -143,11 +146,19 @@ body {
 .container-main .container-dados .container-colmeias .linha-1 {
   margin-top: 30px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center ;
   width: 80%;
   height: 170px;
 }
-.container-main .container-dados .container-colmeias .colmeia-2 {
+.container-main .container-dados .container-colmeias .linha-2 {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center ;
+  width: 80%;
+  height: 170px;
+  flex-direction: row;
+}
+.container-main .container-dados .container-colmeias .colmeia2 {
   height: 190px;
   width: 190px;
   display: flex;
@@ -160,7 +171,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
-.container-main .container-dados .container-colmeias .colmeia-1 {
+.container-main .container-dados .container-colmeias .colmeia1 {
   height: 190px;
   width: 190px;
   display: flex;
@@ -173,7 +184,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
-.container-main .container-dados .container-colmeias .colmeia-3 {
+.container-main .container-dados .container-colmeias .colmeia3 {
   height: 190px;
   width: 190px;
   display: flex;
@@ -187,6 +198,21 @@ body {
   background-repeat: no-repeat;
 }
 
+.container-main .container-dados .container-colmeias .colmeia4{
+   height: 190px;
+  width: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  background-image: url(../assets/images/hexagono-verde.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  align-self: flex-start;
+
+}
 /* GRAFICOS */
 
 .graficos {
@@ -195,20 +221,37 @@ body {
   width: 50%;
   height: 80%;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: ; */
+  gap: 50px ;
 }
 .graficos .grafico-1 {
   padding: 0px;
-  height: 40%;
+  height: 60%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.graficos .grafico-2 {
+
+.graficos .kpis{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.graficos .kpis button{
+  width: 23%;
+  
+  border-style: solid;
+}
+.grafico .kpis #kpi-1{
+  background-color: black;
+  color: white;
+}
+/* .graficos .grafico-2 {
   padding: 0px;
   height: 50%;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */

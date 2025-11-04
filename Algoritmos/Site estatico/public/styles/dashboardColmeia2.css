@@ -136,7 +136,7 @@ container-main .container-top h1{
   flex-direction: column;
   align-items: center;
   width: 150px;
-  background-image: url(../assets/images/hexagono-amarelo2.svg);
+  background-image: url(../assets/images/hexagono-vermelho2.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -149,7 +149,7 @@ container-main .container-top h1{
   flex-direction: column;
   align-items: center;
   width: 150px;
-  background-image: url(../assets/images/hexagono-verde2.svg);
+  background-image: url(../assets/images/hexagono-amarelo2.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -162,7 +162,7 @@ container-main .container-top h1{
   flex-direction: column;
   align-items: center;
   width: 150px;
-  background-image: url(../assets/images/hexagono-amarelo2.svg);
+  background-image: url(../assets/images/hexagono-verde2.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -175,7 +175,7 @@ container-main .container-top h1{
   flex-direction: column;
   align-items: center;
   width: 150px;
-  background-image: url(../assets/images/hexagono-amarelo2.svg);
+  background-image: url(../assets/images/hexagono-vermelho2.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="styles/dashboardColmeia1.css">
+    <link rel="stylesheet" href="styles/dashboardColmeia2.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -13,7 +13,7 @@
     <div class="left-bar">
         <img src="assets/images/beetech-logo.png" alt="" />
 
-        <p>Dashboard específica da colmeia 1.</p>
+        <p>Dashboard específica da colmeia 2.</p>
         <a href="dashboardGeral.html"><button>Voltar</button></a>
     </div>
     <div class="container-main">
@@ -47,32 +47,32 @@
             <div class="container-registros">
                 <div class="registro-1">
                     <p>Temperatura atual: <br>
-                    <h2>32°C</h2>
+                    <h2>40°C</h2>
                     </p>
                 </div>
 
                 <div class="registro-2">
                     <p>Média dos últimos 15 minutos:<br>
-                    <h2>34°C</h2>
+                    <h2>37,8ºC</h2>
                     </p>
                 </div>
 
                 <div class="registro-3">
-                    <p>Menor temperatura registrada no dia: <br>
-                    <h2>32°C</h2>
+                    <p>Menor temperatura registrada do dia: <br>
+                    <h2>35.7°C</h2>
                     </p>
                 </div>
 
 
                 <div class="registro-4">
                     <p>Maior temperatura registrada do dia: <br>
-                    <h2>37°C</h2>
+                    <h2>41°C</h2> <br>
                     </p>
                 </div>
 
                 <div class="registro-5  ">
                     <p>Total de alertas emitidos no dia: <br>
-                    <h2>1</h2>
+                    <h2>3</h2>
                     </p>
                 </div>
             </div>
@@ -106,7 +106,7 @@
             labels: ['19:01:00', '19:02:00', '19:03:00', '19:04:0', '19:05:00', '19:06:00', '19:07:00', '19:08:00', '19:09:00', '19:10:00','19:11:00','19:12:00','19:13:00','19:14:00','19:15:00'],
             datasets: [{
                 label: 'temperatura',
-                data: [35,33,34,35.2,34.3,34.9,34.2,34,35,34, 34, 33, 32, 31.2, 32,32],
+                data: [35.8,36,36,36,37,37,38,38,38,39, 38.9, 39, 39.2, 39.5, 40],
                 borderWidth: 2,
                 borderColor: 'black',
                 color: '#e74c3c'
@@ -115,7 +115,12 @@
         options: {
             scales: {
                 y: {
-                    beginAtZero: false
+                    beginAtZero: false,
+                    
+                    title: {
+                    display: true,
+                    text: 'Temperatura em ºC' 
+                }
                 }
             }
         }
@@ -125,10 +130,11 @@
     new Chart(ctx2, {
         type: 'bar',
         data: {
- labels: ['Segunda', 'Terça', 'Quarta','Quinta','Sexta','Sabado','Domingo'],
+            
+            labels: ['Segunda', 'Terça', 'Quarta','Quinta','Sexta','Sabado','Domingo'],
             datasets: [{
                 label: 'Quantidade de alertas.',
-                data: [0, 1, 2,2,1,0,0],
+                data: [1, 2, 1,0,3,0,0],
                 borderWidth: 1,
 
             }]
@@ -136,11 +142,12 @@
         options: {
             scales: {
                 y: {
-                   beginAtZero: true,
+                    beginAtZero: true,
                     ticks: {
                         precision:0
                     }
-            }}
+                }
+            }
         }
     });
 </script>

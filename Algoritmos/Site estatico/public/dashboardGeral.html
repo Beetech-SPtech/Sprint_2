@@ -2,96 +2,122 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="styles/dashboard.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="styles/dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
-    <div class="left-bar">
-        <img src="assets/images/beetech-logo.png" alt="" />
-        <p><b>Bem vindo(a) Claudio!</b></p>
-        <p>Total de colmeias registradas: 4.</p>
-        <button>Sair</button>
-         </div>
-        <div class="container-main">
-            <div class="container-top">
-                <h1>Métricas:</h1>
-            <div class="container-metricas">
-                <div class="box-1">
-                    <h1><b>Alerta</b></h1>
-                    <p>Abaixo de 30°C ou 15 minutos abaixo do ideal.</p>
-                </div>
-                <div class="box-2">
-                    <h1><b>Preocupante</b></h1>
-                    <p>Abaixo de 33°C.</p>
-                </div>
-                <div class="box-3">
-                    <h1><b>Ideal</b></h1>
-                    <p>Entre 33°C - 36°C.</p>
-                </div>
-                <div class="box-4">
-                    <h1><b>Preocupante</b></h1>
-                    <p>Acima de 36°C.</p>
-                </div>
-                <div class="box-5">
-                    <h1><b>Alerta</b></h1>
-                    <p>Acima de 39 °C por mais 15 minutos.</p>
-                </div>
-            </div></div>
-            <div class="container-dados">
-                <div class="container-colmeias">
-                    <div class="linha-1">
-                        <a href="">
-                    <div class="colmeia-2">
-                        <img src="assets/images/apiario.png" alt="" />
+  <div class="left-bar">
+    <img src="assets/images/beetech-logo.png" alt="" />
+    <p><b>Bem vindo(a) Claudio!</b></p>
 
-                        <p>
-                            Colmeia 2 <br />
-                            40°C <br />
-                            Alerta
-                        </p>
-                    </div>
-                    </a>
-                    <a href="">
-                    <div class="colmeia-1">
-                        <img src="assets/images/apiario.png" alt="" />
+    <a href="login.html"><button>Sair</button></a>
+  </div>
+  <div class="container-main">
+    <div class="container-top">
+      <h1>Métricas:</h1>
+      <div class="container-metricas">
+        <div class="box-1">
+          <h2><b>Alerta</b></h2>
+          <p>Abaixo de 30°C ou 15 minutos abaixo do ideal.</p>
+        </div>
+        <div class="box-2">
+          <h2><b>Preocupante</b></h2>
+          <p>Abaixo de 33°C.</p>
+        </div>
+        <div class="box-3">
+          <h2><b>Ideal</b></h2>
+          <p>Entre 33°C - 36°C.</p>
+        </div>
+        <div class="box-4">
+          <h2><b>Preocupante</b></h2>
+          <p>Acima de 36°C.</p>
+        </div>
+        <div class="box-5">
+          <h2><b>Alerta</b></h2>
+          <p>Acima de 39 °C por mais 15 minutos.</p>
+        </div>
+      </div>
+    </div>
+    <div class="container-dados">
+      <div class="container-colmeias">
+        <div class="linha-1" id="linha1">
+          <a href="dashboardColmeia-2.html">
+            <div class="colmeia2" id="colmeia2">
+              <img src="assets/images/apiario.png" alt="" />
 
-                        <p>
-                            Colmeia 1 <br />
-                            32°C <br />
-                            Preocupante
-                        </p>
-                    </div>
-                    </a>
-                    <a href="">
-                    <div class="colmeia-3">
-                        <img src="assets/images/apiario.png" alt="" />
-
-                        <p>
-                            Colmeia 3 <br />
-                            34°C <br />
-                            Ideal
-                        </p>
-                    </div>
-                    </a>
-                </div></div>
-                <div class="graficos">
-                    <div class="grafico-1">
-                        <h2>Quantidade de alertas emitidos no primeiro semestre.</h2>
-                    <canvas id="grafico-1"></canvas></div>
-                    <div class="grafico-2">
-                        <h2>Percentual de colmeias em relação ao estado.</h2>
-                    <canvas id="grafico-2"></canvas></div>
-                </div>
-
+              <p>
+                Colmeia 2 <br />
+                40°C <br />
+                Alerta
+              </p>
             </div>
+          </a>
+          <a href="dashboardColmeia-1.html">
+            <div class="colmeia1" id="colmeia1">
+              <img src="assets/images/apiario.png" alt="" />
+
+              <p>
+                Colmeia 1 <br />
+                32°C <br />
+                Preocupante
+              </p>
+            </div>
+          </a>
 
         </div>
-   
+        <div class="linha-2">
+          <a href="">
+            <div class="colmeia3" id="colmeia3">
+              <img src="assets/images/apiario.png" alt="" />
+
+              <p>
+                Colmeia 3 <br />
+                34°C <br />
+                Ideal
+              </p>
+            </div>
+          </a>
+          <a href="">
+            <div class="colmeia4" id="colmeia4">
+              <img src="assets/images/apiario.png" alt="" />
+
+              <p>
+                Colmeia 4 <br />
+                34.3°C <br />
+                Ideal
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="graficos">
+        <div class="grafico-1">
+          <h3>Quantidade de alertas emitidos na semana.</h3>
+          <canvas id="grafico-1"></canvas>
+        </div>
+        <div class="kpis"><button id="kpi-1" onclick="kpi1()">Total de Colmeias registradas: <br>
+            <h1>4</h1>
+          </button> <button id="kpi-2" onclick="kpi2()">Colmeias com temperatura de ALERTA: <br>
+            <h1>1</h1>
+          </button> <button id="kpi-3" onclick="kpi3()">Colmeias com temperatura PROCUPANTE: <br>
+            <h1>1</h1>
+          </button><button id="kpi-4" onclick="kpi4()">Colmeias com temperatura IDEAL: <br>
+            <h1>2</h1>
+          </button></div>
+        <!-- <div class="grafico-2">
+                          <h3>Percentual de colmeias em relação ao estado.</h3>
+                      <canvas id="grafico-2"></canvas></div> -->
+      </div>
+
     </div>
+
+  </div>
+
+  </div>
 </body>
 
 </html>
@@ -102,13 +128,13 @@
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+      labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
       datasets: [{
         label: 'Quantidade de alertas emitidos',
-        data: [12, 19, 3, 5, 2, 3],
+        data: [9, 10, 8, 10, 10, 0, 0],
         borderWidth: 2,
         borderColor: 'black',
-        color:'#e74c3c'
+        color: '#e74c3c'
       }]
     },
     options: {
@@ -119,27 +145,58 @@
       }
     }
   });
-   
 
-  new Chart(ctx2, {
-    type: 'doughnut',
-    data: {
-      labels: ['Preocupante', 'Ideal', 'Alerta'],
-      datasets: [{
-        data: [1, 2, 1],
-        borderWidth: 1,
-        backgroundColor: ['#f1c40f', '#2ecc71', '#e74c3c']
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          display:false
-        },
-        x:{
-            display:false
-        }
-      }
-    }
-  });
+
+  // new Chart(ctx2, {
+  //   type: 'doughnut',
+  //   data: {
+  //     labels: ['Preocupante', 'Ideal', 'Alerta'],
+  //     datasets: [{
+  //       data: [1, 2, 1],
+  //       borderWidth: 1,
+  //       backgroundColor: ['#f1c40f', '#2ecc71', '#e74c3c']
+  //     }]
+  //   },
+  //   options: {
+  //     scales: {
+  //       y: {
+  //         display:false
+  //       },
+  //       x:{
+  //           display:false
+  //       }
+  //     }
+  //   }
+  // });
+
+
+  function kpi1() {
+
+    linha1.style.display = 'flex'
+    colmeia1.style.display = 'flex'
+    colmeia2.style.display = 'flex'
+    colmeia3.style.display = 'flex'
+    colmeia4.style.display = 'flex'
+  }
+  function kpi2() {
+    linha1.style.display = 'flex'
+    colmeia1.style.display = 'none'
+    colmeia2.style.display = 'flex'
+    colmeia3.style.display = 'none'
+    colmeia4.style.display = 'none'
+  }
+  function kpi3() {
+    linha1.style.display = 'flex'
+    colmeia1.style.display = 'flex'
+    colmeia2.style.display = 'none'
+    colmeia3.style.display = 'none'
+    colmeia4.style.display = 'none'
+  }
+  function kpi4() {
+    linha1.style.display = 'none'
+    colmeia1.style.display = 'none'
+    colmeia2.style.display = 'none'
+    colmeia3.style.display = 'flex'
+    colmeia4.style.display = 'flex'
+  }
 </script>
