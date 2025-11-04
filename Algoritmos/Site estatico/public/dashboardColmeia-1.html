@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/dashboardColmeia1.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="left-bar">
+        <img src="assets/images/beetech-logo.png" alt="" />
+        <p><b>Bem vindo(a) Claudio!</b></p>
+        <p>Total de colmeias registradas: 4.</p>
+        <button>Sair</button>
+    </div>
+    <div class="container-main">
+        <div class="container-top">
+            <h1>Métricas:</h1>
+            <div class="container-metricas">
+                <div class="box-1">
+                    <h1><b>Alerta</b></h1>
+                    <p>Abaixo de 30°C ou 15 minutos abaixo do ideal.</p>
+                </div>
+                <div class="box-2">
+                    <h1><b>Preocupante</b></h1>
+                    <p>Abaixo de 33°C.</p>
+                </div>
+                <div class="box-3">
+                    <h1><b>Ideal</b></h1>
+                    <p>Entre 33°C - 36°C.</p>
+                </div>
+                <div class="box-4">
+                    <h1><b>Preocupante</b></h1>
+                    <p>Acima de 36°C.</p>
+                </div>
+                <div class="box-5">
+                    <h1><b>Alerta</b></h1>
+                    <p>Acima de 39 °C por mais 15 minutos.</p>
+                </div>
+            </div>
+        </div>
+        <div class="container-dados">
+            <h1>Registros:</h1>
+            <div class="container-registros">
+                <div class="registro-1">
+                    <p>Temperatura atual: <br>
+                    <h2>35°C</h2>
+                    </p>
+                </div>
+
+                <div class="registro-2">
+                    <p>Média dos últimos 15 minutos:<br>
+                    <h2>35°C</h2>
+                    </p>
+                </div>
+
+                <div class="registro-3">
+                    <p>Menor temperatura registrada do dia: <br>
+                    <h2>32°C</h2><br>(18:08:32)
+                    </p>
+                </div>
+
+
+                <div class="registro-4">
+                    <p>Maior temperatura registrada do dia: <br>
+                    <h2>37°C</h2> <br>(19:08:32)
+                    </p>
+                </div>
+
+                <div class="registro-5  ">
+                    <p>Total de alertas emitidos no dia: <br>
+                    <h2>1</h2>
+                    </p>
+                </div>
+            </div>
+
+            <div class="graficos">
+                <div class="grafico-1">
+                    <h2>Temperatura da colmeia 1</h2>
+                    <canvas id="grafico-1"></canvas>
+                </div>
+                <div class="grafico-2">
+                    <h2>Histórico de Alertas</h2>
+                    <canvas id="grafico-2"></canvas>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</body>
+
+</html>
+<script>
+    const ctx = document.getElementById('grafico-1');
+    const ctx2 = document.getElementById('grafico-2');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['19:01:01', '19:01:02', '19:01:03', '19:01:04', '19:01:05', '19:01:06'],
+            datasets: [{
+                label: 'temperatura',
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 2,
+                borderColor: 'black',
+                color: '#e74c3c'
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['Preocupante', 'Ideal', 'Alerta'],
+            datasets: [{
+                data: [1, 2, 1],
+                borderWidth: 1,
+
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>

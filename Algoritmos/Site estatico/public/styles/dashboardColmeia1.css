@@ -112,102 +112,106 @@ body {
   justify-content: space-around;
 }
 /* METRICAS */
-/* CAIXA DAS COLMEIAS */
+/* registros */
 .container-main .container-dados {
   display: flex;
-  flex-direction: row;
-  width: 90%;
-  height: 100%;
+  flex-direction: column;
   align-items: center;
+  height: 100%;
+  width: 100%;
 }
-
-.container-main .container-colmeias {
+.container-main .container-dados .container-registros {
   display: flex;
-  flex-direction: row;
-  background-color: #d9d9d9;
-  width: 50%;
-  height: 80%;
-  border-radius: 5px;
+  flex: content;
+  align-items: center;
+  text-align: center;
+}
+.container-main .container-dados .container-registros .registro-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 170px;
+  background-image: url(../assets/images/hexagono-verde2.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 170px;
+  padding: 20px;
   justify-content: center;
 }
-.container-main .container-colmeias a {
-  text-decoration: none;
-  color: black;
-}
-.container-main .container-colmeias img {
-  height: 70px;
-
-  margin: 10px 0;
-}
-
-.container-main .container-dados .container-colmeias .linha-1 {
-  margin-top: 30px;
+.container-main .container-dados .container-registros .registro-2 {
   display: flex;
-  justify-content: space-evenly;
-  width: 80%;
+  flex-direction: column;
+  align-items: center;
+  width: 170px;
+  background-image: url(../assets/images/hexagono-verde2.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   height: 170px;
+  padding: 20px;
+  justify-content: center;
 }
-.container-main .container-dados .container-colmeias .colmeia-2 {
-  height: 190px;
-  width: 190px;
+.container-main .container-dados .container-registros .registro-3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-
-  background-image: url(../assets/images/hexagono-vermelho.svg);
-  background-size: contain;
+  width: 170px;
+  background-image: url(../assets/images/hexagono-amarelo2.svg);
   background-position: center;
   background-repeat: no-repeat;
+  background-size: contain;
+  height: 170px;
+  padding: 20px;
+  justify-content: center;
 }
-.container-main .container-dados .container-colmeias .colmeia-1 {
-  height: 190px;
-  width: 190px;
+.container-main .container-dados .container-registros .registro-4 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-
-  background-image: url(../assets/images/hexagono-amarelo.svg);
-  background-size: contain;
+  width: 170px;
+  background-image: url(../assets/images/hexagono-amarelo2.svg);
   background-position: center;
   background-repeat: no-repeat;
+  background-size: contain;
+  height: 170px;
+  padding: 20px;
+  justify-content: center;
 }
-.container-main .container-dados .container-colmeias .colmeia-3 {
-  height: 190px;
-  width: 190px;
+.container-main .container-dados .container-registros .registro-5 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-
-  background-image: url(../assets/images/hexagono-verde.svg);
-  background-size: contain;
+  width: 170px;
+  background-image: url(../assets/images/hexagono-vermelho2.svg);
   background-position: center;
   background-repeat: no-repeat;
+  background-size: contain;
+  height: 170px;
+  padding: 20px;
+  justify-content: center;
 }
-
 /* GRAFICOS */
 
 .graficos {
   display: flex;
-  flex-direction: column;
-  width: 50%;
-  height: 80%;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 .graficos .grafico-1 {
   padding: 0px;
-  height: 40%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .graficos .grafico-2 {
   padding: 0px;
-  height: 50%;
-
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
