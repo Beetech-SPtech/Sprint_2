@@ -9,11 +9,16 @@
 /* INICIO HEADER */
 header .container{
     display: flex;
-    background-color: #DFCD9E;
+    background-color: rgba(223, 205, 158,0.4);
+    backdrop-filter: blur(10px);
     justify-content: space-between;
     padding: 0 20px;
     align-items: center;
     height: 75px;
+    position: fixed;
+    width: 100%;
+    
+    
 }
 
 header .container .navbar{

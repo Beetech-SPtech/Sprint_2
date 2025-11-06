@@ -214,6 +214,7 @@ header{
     align-items: center;
     display: flex;
     margin-bottom: 50px;
+    
 }
 header .container{
     display: flex;
