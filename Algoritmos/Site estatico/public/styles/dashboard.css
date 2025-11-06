@@ -56,6 +56,7 @@ body {
   width: 100%;
   align-items: center;
   height: 20%;
+  font-size: 18px;
 }
 .container-main .container-top .container-metricas {
   display: flex;
@@ -63,11 +64,12 @@ body {
   height: 100%;
   width: 80%;
   font-size: 18px;
+  justify-content: space-between;
 }
 /* CONTAINER TOP */
 /* METRICAS */
 .box-1 {
-  width: 20%;
+  width: 18%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,7 +78,7 @@ body {
   justify-content: space-around;
 }
 .box-2 {
-  width: 20%;
+  width: 18%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,7 +87,7 @@ body {
   justify-content: space-around;
 }
 .box-3 {
-  width: 20%;
+  width: 18%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,7 +96,7 @@ body {
   justify-content: space-around;
 }
 .box-4 {
-  width: 20%;
+  width: 18%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -103,7 +105,7 @@ body {
   justify-content: space-around;
 }
 .box-5 {
-  width: 20%;
+  width: 18%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -131,7 +133,7 @@ body {
   border-radius: 5px;
   justify-content: flex-start;
   align-items: center;
-  gap: 0px ;
+  gap: 0px;
 }
 .container-main .container-colmeias a {
   text-decoration: none;
@@ -146,14 +148,14 @@ body {
 .container-main .container-dados .container-colmeias .linha-1 {
   margin-top: 30px;
   display: flex;
-  justify-content: center ;
+  justify-content: center;
   width: 80%;
   height: 170px;
 }
 .container-main .container-dados .container-colmeias .linha-2 {
   margin-top: 30px;
   display: flex;
-  justify-content: center ;
+  justify-content: center;
   width: 80%;
   height: 170px;
   flex-direction: row;
@@ -198,8 +200,8 @@ body {
   background-repeat: no-repeat;
 }
 
-.container-main .container-dados .container-colmeias .colmeia4{
-   height: 190px;
+.container-main .container-dados .container-colmeias .colmeia4 {
+  height: 190px;
   width: 190px;
   display: flex;
   flex-direction: column;
@@ -211,7 +213,6 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   align-self: flex-start;
-
 }
 /* GRAFICOS */
 
@@ -222,7 +223,7 @@ body {
   height: 80%;
   align-items: center;
   /* justify-content: ; */
-  gap: 50px ;
+  gap: 50px;
 }
 .graficos .grafico-1 {
   padding: 0px;
@@ -232,21 +233,35 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
-.graficos .kpis{
+.graficos .kpis {
+  display: flex;
+  flex-direction: column;
+}
+.graficos .kpis .botoes {
   display: flex;
   justify-content: space-evenly;
 }
 
-.graficos .kpis button{
+.graficos .kpis .botoes button {
   width: 23%;
-  
+  cursor: pointer;
   border-style: solid;
 }
-.grafico .kpis #kpi-1{
-  background-color: black;
-  color: white;
+#kpi1 {
+  background-color: #f9f0d9;
 }
+
+#kpi2 {
+  background-color: #f55656;
+}
+
+#kpi3 {
+  background-color: #ffed91;
+}
+#kpi4 {
+  background-color: #85ff83;
+}
+
 /* .graficos .grafico-2 {
   padding: 0px;
   height: 50%;
