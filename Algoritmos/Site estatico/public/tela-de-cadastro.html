@@ -148,6 +148,7 @@
     function cadastrarEmail() {
         var email = input_email.value;
         if (
+            (email.endsWith('.com')|| email.endsWith('.com.br')|| email.endsWith('.school')) &&
             email.includes("@") &&
             ((email.includes("!") ||
                 email.includes("#") ||
