@@ -1,14 +1,14 @@
-// importa os bibliotecas necessários
+// importa os bibliotecas necessários *
 const serialport = require('serialport');
 const express = require('express');
 const mysql = require('mysql2');
 
-// constantes para configurações
+// constantes para configurações *
 const SERIAL_BAUD_RATE = 9600;
 const SERVIDOR_PORTA = 3300;
 
-// habilita ou desabilita a inserção de dados no banco de dados
-const HABILITAR_OPERACAO_INSERIR = true;
+// habilita ou desabilita a inserção de dados no banco de dados *
+const HABILITAR_OPERACAO_INSERIR = false;
 
 // função para comunicação serial
 const serial = async (
@@ -16,25 +16,25 @@ const serial = async (
    
 ) => {
 
-    // conexão com o banco de dados MySQL
+    // conexão com o banco de dados MySQL usuario que só da insert *
     let poolBancoDados = mysql.createPool(
         {
-            host: 'localhost',
-            user: 'aluno',
-            password: 'Sptech#2024',
+            host: '127.0.0.1',
+            user: 'beetech_insert',
+            password: 'Beetech#2025',
             database: 'Beetech',
             port: 3307
         }
     ).promise();
 
-    // lista as portas seriais disponíveis e procura pelo Arduino
+    // lista as portas seriais disponíveis e procura pelo Arduino *
     const portas = await serialport.SerialPort.list();
     const portaArduino = portas.find((porta) => porta.vendorId == 2341 && porta.productId == 43);
     if (!portaArduino) {
         throw new Error('O arduino não foi encontrado em nenhuma porta serial');
     }
 
-    // configura a porta serial com o baud rate especificado
+    // configura a porta serial com o baud rate especificado *
     const arduino = new serialport.SerialPort(
         {
             path: portaArduino.path,
@@ -54,26 +54,16 @@ const serial = async (
         const sensorAnalogico = parseFloat(valores[0]);
 
         // armazena os valores dos sensores nos arrays correspondentes
-        valoresSensorAnalogico.push(sensorAnalogico,(sensorAnalogico+10));
+        valoresSensorAnalogico.push(sensorAnalogico,(sensorAnalogico));
         
 
-        // insere os dados no banco de dados (se habilitado)
+        // insere os dados no banco de dados (se habilitado) *
         if (HABILITAR_OPERACAO_INSERIR) {
 
             // este insert irá inserir os dados na tabela "registroSensor"
             await poolBancoDados.execute(
                 'INSERT INTO registroSensor (valorTemp,fkSensores) VALUES (?,1)',
-                [sensorAnalogico + 8]
-            );
-            console.log("valores inseridos no banco: ", sensorAnalogico );
-            await poolBancoDados.execute(
-                'INSERT INTO registroSensor (valorTemp,fkSensores) VALUES (?,2)',
-                [sensorAnalogico + 10]
-            );
-            console.log("valores inseridos no banco: ", sensorAnalogico );
-            await poolBancoDados.execute(
-                'INSERT INTO registroSensor (valorTemp,fkSensores) VALUES (?,3)',
-                [sensorAnalogico + 15]
+                [sensorAnalogico + 12]
             );
             console.log("valores inseridos no banco: ", sensorAnalogico );
 
@@ -81,13 +71,13 @@ const serial = async (
 
     });
 
-    // evento para lidar com erros na comunicação serial
+    // evento para lidar com erros na comunicação serial *
     arduino.on('error', (mensagem) => {
         console.error(`Erro no arduino (Mensagem: ${mensagem}`)
     });
 }
 
-// função para criar e configurar o servidor web
+// função para criar e configurar o servidor web *
 const servidor = (
     valoresSensorAnalogico,
     
