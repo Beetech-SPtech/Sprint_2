@@ -69,7 +69,7 @@ body {
 /* CONTAINER TOP */
 /* METRICAS */
 .box-1 {
-  width: 18%;
+  width: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,7 +79,7 @@ body {
       color: white;
 }
 .box-2 {
-  width: 18%;
+  width: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -89,7 +89,7 @@ body {
       color: white;
 }
 .box-3 {
-  width: 18%;
+  width: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -99,7 +99,7 @@ body {
       color: white;
 }
 .box-4 {
-  width: 18%;
+  width: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -109,7 +109,7 @@ body {
       color: white;
 }
 .box-5 {
-  width: 18%;
+  width: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -260,18 +260,22 @@ body {
   color: #ffffff;
 }
 #kpi1 {
-  background-color: #faeac4;
+  background-color: #000000;
+
 }
 
 #kpi2 {
-  background-color: #f55656;
+  background-color: #000000;
+  border: solid red 4px;
 }
 
 #kpi3 {
-  background-color: #ffed91;
+  background-color: #000000;
+  border: solid yellow 4px;
 }
 #kpi4 {
-  background-color: #85ff83;
+  background-color: #000000;
+  border: solid green 4px;
 }
 
 /* .graficos .grafico-2 {
